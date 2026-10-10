@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengenal Anggara Treasures - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+            --color-cream: #f6efe6;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           2. BREADCRUMB BAR
+           ========================================== */
+        .crumb-bar {
+            margin-top: 73px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 16px 50px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .crumb-bar a {
+            opacity: 0.65;
+            transition: opacity 0.3s;
+        }
+
+        .crumb-bar a:hover {
+            opacity: 1;
+        }
+
+        .crumb-bar .sep {
+            margin: 0 10px;
+            color: #e0333f;
+        }
+
+        /* ==========================================
+           3. HERO (GAMBAR SAJA, TANPA TEKS)
+           ========================================== */
+        .at-hero {
+            position: relative;
+            height: 68vh;
+            min-height: 420px;
+            background: url('img/bnr2.jpeg') center/cover no-repeat fixed;
+        }
+
+        .at-hero .at-caret {
+            position: absolute;
+            left: 50%;
+            bottom: 26px;
+            transform: translateX(-50%);
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            opacity: 0.85;
+            animation: at-bounce 2.2s ease-in-out infinite;
+        }
+
+        @keyframes at-bounce {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 8px);
+            }
+        }
+
+        /* ==========================================
+           4. BLOK PEMBUKA (EYEBROW + JUDUL + TEKS)
+           ========================================== */
+        .at-intro {
+            padding: 90px 30px 80px;
+            max-width: 880px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .at-caret-up {
+            font-size: 1rem;
+            color: var(--color-primary);
+            margin-bottom: 14px;
+        }
+
+        .at-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .at-intro h1 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 36px;
+        }
+
+        .at-intro p {
+            font-size: 1rem;
+            opacity: 0.82;
+            margin-bottom: 18px;
+        }
+
+        .at-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
+           5. TAB KATEGORI KEAHLIAN
+           ========================================== */
+        .at-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 34px 30px;
+            background-color: var(--color-font);
+        }
+
+        .at-tabs a {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-secondary);
+            opacity: 0.6;
+            padding-bottom: 10px;
+            border-bottom: 2px solid transparent;
+            transition: opacity 0.3s, border-color 0.3s;
+        }
+
+        .at-tabs a:hover {
+            opacity: 1;
+            border-color: var(--color-primary);
+        }
+
+        /* ==========================================
+           6. PANEL PEMBUKA TIAP KEAHLIAN (FULL-BLEED GELAP)
+           ========================================== */
+        .at-craft-hero {
+            position: relative;
+            min-height: 58vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            scroll-margin-top: 90px;
+        }
+
+        .at-craft-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 0, 2, 0.5);
+        }
+
+        .at-craft-hero-inner {
+            position: relative;
+            z-index: 2;
+            color: var(--color-secondary);
+            padding: 30px;
+        }
+
+        .at-craft-hero h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.3rem;
+            line-height: 1.3;
+            margin-bottom: 28px;
+        }
+
+        .at-craft-hero .at-link-light {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--color-secondary);
+            transition: opacity 0.3s;
+        }
+
+        .at-craft-hero .at-link-light:hover {
+            opacity: 0.7;
+        }
+
+        /* ==========================================
+           7. BARIS EDITORIAL BERSELANG-SELING
+           ========================================== */
+        .at-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 50px;
+            background-color: var(--color-secondary);
+        }
+
+        .at-feature.reverse .at-feature-img {
+            order: 2;
+        }
+
+        .at-feature-img img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .at-feature-text .at-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .at-feature-text h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.9rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .at-feature-text p {
+            font-size: 0.98rem;
+            opacity: 0.82;
+            margin-bottom: 26px;
+            max-width: 460px;
+        }
+
+        .at-feature-text .at-link {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--color-primary);
+            transition: opacity 0.3s;
+        }
+
+        .at-feature-text .at-link:hover {
+            opacity: 0.6;
+        }
+
+        /* ==========================================
+           8. BLOK KOLEKSI (LATAR KRIM)
+           ========================================== */
+        .at-collection {
+            padding: 100px 30px;
+            text-align: center;
+            background-color: var(--color-cream);
+        }
+
+        .at-collection-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .at-collection h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.4rem;
+            line-height: 1.3;
+            margin-bottom: 26px;
+        }
+
+        .at-collection p {
+            font-size: 1rem;
+            opacity: 0.82;
+            margin-bottom: 34px;
+        }
+
+        .at-collection .at-link {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--color-primary);
+            transition: opacity 0.3s;
+        }
+
+        .at-collection .at-link:hover {
+            opacity: 0.6;
+        }
+
+        /* ==========================================
+           9. GRID 2 GAMBAR PENUH (TANPA JARAK)
+           ========================================== */
+        .at-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .at-split img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ==========================================
+           10. KARTU "SELANJUTNYA"
+           ========================================== */
+        .at-next {
+            padding: 130px 30px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .at-next h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.6rem;
+            margin: 10px 0 38px;
+        }
+
+        .at-next .btn-dark {
+            display: inline-block;
+            padding: 16px 40px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .at-next .btn-dark:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           11. TAUTAN TERKAIT
+           ========================================== */
+        .at-related {
+            border-top: 1px solid rgba(23, 24, 23, 0.1);
+            background-color: var(--color-secondary);
+            padding: 50px 50px 70px;
+        }
+
+        .at-related-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .at-related-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.55;
+            flex: 0 0 auto;
+        }
+
+        .at-related-links {
+            display: flex;
+            gap: 34px;
+            flex-wrap: wrap;
+        }
+
+        .at-related-links a {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, opacity 0.3s;
+        }
+
+        .at-related-links a:hover {
+            border-color: var(--color-primary);
+        }
+
+        /* ==========================================
+           12. ANIMASI MUNCUL SAAT SCROLL
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ==========================================
+           13. RESPONSIVE
+           ========================================== */
+        @media (max-width: 900px) {
+            .at-feature {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 70px 25px;
+            }
+
+            .at-feature.reverse .at-feature-img {
+                order: 0;
+            }
+
+            .at-split {
+                grid-template-columns: 1fr;
+            }
+
+            .at-hero,
+            .at-craft-hero {
+                background-attachment: scroll;
+            }
+
+            .at-tabs {
+                gap: 28px 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .crumb-bar {
+                margin-top: 63px;
+                padding: 14px 20px;
+                letter-spacing: 1.5px;
+            }
+
+            .at-hero {
+                height: 46vh;
+            }
+
+            .at-intro {
+                padding: 60px 25px 60px;
+            }
+
+            .at-intro h1 {
+                font-size: 2rem;
+            }
+
+            .at-craft-hero {
+                min-height: 42vh;
+            }
+
+            .at-craft-hero h2 {
+                font-size: 1.7rem;
+            }
+
+            .at-collection {
+                padding: 70px 22px;
+            }
+
+            .at-collection h2 {
+                font-size: 1.8rem;
+            }
+
+            .at-next {
+                padding: 90px 25px;
+            }
+
+            .at-next h2 {
+                font-size: 1.9rem;
+            }
+
+            .at-related-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- BREADCRUMB -->
+    <nav class="crumb-bar" aria-label="Breadcrumb">
+        <a href="ang_new.html">Home</a><span class="sep">/</span><a href="about.html">Anggara Treasures</a><span
+            class="sep">/</span>Mengenal Kami
+    </nav>
+
+    <!-- HERO (GAMBAR SAJA) -->
+    <section class="at-hero" role="img" aria-label="Tangan maestro mengukir kristal giok">
+        <span class="at-caret">&#9661;</span>
+    </section>
+
+    <!-- BLOK PEMBUKA -->
+    <section class="at-intro">
+        <p class="at-caret-up reveal">&#9661;</p>
+        <p class="at-eyebrow reveal">Seni Kurasi Kristal</p>
+        <h1 class="reveal">Dari Inspirasi Alam ke Karya yang Tak Lekang Waktu</h1>
+        <p class="reveal">Setiap kristal imperial fengshui yang kami hadirkan lahir dari tangan-tangan terampil
+            yang memahami karakter batu sejak dari bentuk mentahnya. Keahlian ini adalah warisan yang tak
+            tergantikan oleh mesin apa pun.</p>
+        <p class="reveal">Mereka adalah penjaga tradisi. Dari generasi ke generasi, keahlian ini terus hidup dalam
+            setiap kristal yang dikurasi oleh Anggara Treasures &mdash; memadukan presisi teknis dengan kepekaan
+            spiritual.</p>
+    </section>
+
+    <!-- TAB KATEGORI KEAHLIAN -->
+    <nav class="at-tabs" aria-label="Kategori keahlian">
+        <a href="#pemilihan-batu">Pemilihan Batu</a>
+        <a href="#tangan-pengukir">Tangan Pengukir</a>
+        <a href="#kurasi-fengshui">Kurasi Fengshui</a>
+    </nav>
+
+    <!-- KEAHLIAN 1: PEMILIHAN BATU -->
+    <section class="at-craft-hero reveal" id="pemilihan-batu" style="background-image: url('img/kiri.jpeg');">
+        <div class="at-craft-hero-inner">
+            <h2>Sang Pemilih Batu,<br>Penjaga Kemurnian</h2>
+            <a class="at-link-light" href="koleksi.html">Jelajahi Dunia Pemilihan Batu &rarr;</a>
+        </div>
+    </section>
+
+    <div class="at-feature">
+        <div class="at-feature-img reveal">
+            <img src="img/about2.jpeg" alt="Kristal citrine berbentuk mangkuk emas imperial">
+        </div>
+        <div class="at-feature-text reveal">
+            <p class="at-eyebrow">&#9656; Standar Kejernihan</p>
+            <h3>Hanya yang Paling Murni yang Kami Pilih</h3>
+            <p>Setiap kristal dinilai dari tingkat kejernihannya &mdash; inklusi dan noda internal menjadi
+                penentu. Hanya batu dengan kejernihan dan warna alami tertinggi yang melanjutkan perjalanan menuju
+                tangan para pengukir kami.</p>
+            <a class="at-link" href="koleksi.html">Selengkapnya</a>
+        </div>
+    </div>
+
+    <!-- KEAHLIAN 2: TANGAN PENGUKIR -->
+    <section class="at-craft-hero reveal" id="tangan-pengukir" style="background-image: url('img/artisan.jpeg');">
+        <div class="at-craft-hero-inner">
+            <h2>Tangan Pengukir,<br>Perajin Kedalaman</h2>
+            <a class="at-link-light" href="buting.html">Jelajahi Dunia Pengukiran &rarr;</a>
+        </div>
+    </section>
+
+    <div class="at-feature reverse">
+        <div class="at-feature-img reveal">
+            <img src="img/about_1.jpeg" alt="Liontin giok berukir dengan detail halus">
+        </div>
+        <div class="at-feature-text reveal">
+            <p class="at-eyebrow">&#9656; Warisan Turun-Temurun</p>
+            <h3>Dipahat Tangan, Bukan Mesin</h3>
+            <p>Setiap potongan diukir langsung oleh tangan maestro pengrajin dengan teknik turun-temurun, hasil
+                dari pelatihan bertahun-tahun. Presisi inilah yang memaksimalkan pantulan cahaya dan energi di
+                dalam setiap kristal.</p>
+            <a class="at-link" href="buting.html">Selengkapnya</a>
+        </div>
+    </div>
+
+    <!-- KEAHLIAN 3: KURASI FENGSHUI -->
+    <section class="at-craft-hero reveal" id="kurasi-fengshui" style="background-image: url('img/kanan.jpeg');">
+        <div class="at-craft-hero-inner">
+            <h2>Kurator Fengshui,<br>Penyelaras Energi</h2>
+            <a class="at-link-light" href="lokasi.html">Jelajahi Dunia Kurasi &rarr;</a>
+        </div>
+    </section>
+
+    <div class="at-feature">
+        <div class="at-feature-img reveal">
+            <img src="img/about3.jpeg" alt="Kompas feng shui dan qilin ametis pada meja kayu">
+        </div>
+        <div class="at-feature-text reveal">
+            <p class="at-eyebrow">&#9656; Keseimbangan Energi</p>
+            <h3>Diselaraskan untuk Kehidupan Masa Kini</h3>
+            <p>Tim kurator kami memahami prinsip fengshui secara mendalam, memastikan setiap kristal yang sampai
+                ke tangan Anda membawa keseimbangan energi yang sesuai dengan kebutuhan dan tujuan Anda.</p>
+            <a class="at-link" href="lokasi.html">Selengkapnya</a>
+        </div>
+    </div>
+
+    <!-- BLOK KOLEKSI -->
+    <section class="at-collection">
+        <div class="at-collection-inner">
+            <p class="at-caret-up reveal">&#9661;</p>
+            <p class="at-eyebrow reveal">Koleksi Anggara Treasures</p>
+            <h2 class="reveal">Saat Keahlian Tangan Bertemu Sejarah</h2>
+            <p class="reveal">Merayakan teknik dekoratif yang diterapkan pada setiap kristal, koleksi Anggara
+                Treasures menemukan inspirasinya dari seni, sejarah, dan budaya istana Dinasti Qing. Disempurnakan
+                oleh tangan maestro kami, setiap karya adalah bukti kreativitas dan keahlian yang diwariskan
+                lintas generasi.</p>
+            <a class="at-link reveal" href="koleksi.html">Jelajahi Koleksi</a>
+        </div>
+    </section>
+
+    <!-- GRID 2 GAMBAR PENUTUP -->
+    <div class="at-split">
+        <img class="reveal" src="img/jade1.png" alt="Koleksi kristal imperial fengshui Anggara Treasures">
+        <img class="reveal" src="img/about1.png" alt="Liontin giok berukir di atas dudukan kayu">
+    </div>
+
+    <!-- KARTU SELANJUTNYA -->
+    <section class="at-next">
+        <p class="at-eyebrow reveal" style="text-align:center;">Selanjutnya</p>
+        <h2 class="reveal">Lihat Koleksi Kristal</h2>
+        <a href="koleksi.html" class="btn-dark reveal">Jelajahi Koleksi</a>
+    </section>
+
+    <!-- TAUTAN TERKAIT -->
+    <section class="at-related">
+        <div class="at-related-inner">
+            <span class="at-related-label">Jelajahi Juga</span>
+            <div class="at-related-links">
+                <a href="dinasti-qing.html">Dinasti Qing</a>
+                <a href="kaisar-qianlong.html">Kaisar Qianlong</a>
+                <a href="about.html">Sejarah Lengkap</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+        // animasi muncul saat scroll (tanpa JS, konten tetap tampil)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('visible'));
+        }
+    </script>
+</body>
+
+</html>

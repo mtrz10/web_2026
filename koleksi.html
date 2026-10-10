@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Kristal - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           3. PAGE HERO
+           ========================================== */
+        .page-hero {
+            position: relative;
+            padding: 200px 20px 90px;
+            text-align: center;
+            background: linear-gradient(rgba(156, 5, 18, 0.55), rgba(23, 24, 23, 0.75)),
+                url('img/banner.jpeg') center/cover no-repeat;
+        }
+
+        .page-hero-eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-secondary);
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--color-secondary);
+            margin-bottom: 18px;
+        }
+
+        .page-hero p {
+            font-size: 1rem;
+            color: var(--color-secondary);
+            opacity: 0.85;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           4. SEGMENT NAV
+           ========================================== */
+        .segment-nav {
+            position: sticky;
+            top: 73px;
+            z-index: 900;
+            background-color: var(--color-secondary);
+            border-bottom: 1px solid rgba(156, 5, 18, 0.15);
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 18px 20px;
+        }
+
+        .segment-nav a {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            font-weight: 600;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .segment-nav a:hover {
+            opacity: 1;
+        }
+
+        /* ==========================================
+           5. COLLECTION SEGMENT
+           ========================================== */
+        .collection-segment {
+            padding: 100px 50px;
+            background-color: var(--color-secondary);
+        }
+
+        .collection-segment:nth-of-type(even) {
+            background-color: #faf7f5;
+        }
+
+        .segment-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .segment-eyebrow {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .segment-title {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--color-font);
+            margin-bottom: 14px;
+        }
+
+        .segment-desc {
+            max-width: 620px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            opacity: 0.75;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--color-secondary);
+            padding: 30px;
+            border-radius: 4px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.4s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-img-wrapper {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .card-img-wrapper img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--color-font);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--color-font);
+            opacity: 0.75;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-primary);
+            padding-bottom: 5px;
+            align-self: center;
+        }
+
+        /* ==========================================
+           7. RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 160px 20px 60px;
+            }
+
+            .page-hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .segment-nav {
+                top: 62px;
+                gap: 25px;
+            }
+
+            .collection-segment {
+                padding: 60px 20px;
+            }
+
+            .segment-title {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+    <!-- 2. PAGE HERO -->
+    <section class="page-hero">
+        <p class="page-hero-eyebrow">Koleksi Kami</p>
+        <h1>Koleksi Kristal Anggara Treasures</h1>
+        <p>Dari perhiasan pribadi hingga penghias ruang, temukan kristal imperial fengshui yang selaras dengan
+            energi Anda.</p>
+    </section>
+
+    <!-- 3. SEGMENT NAV -->
+    <nav class="segment-nav">
+        <a href="#personal-collection">Personal Collection</a>
+        <a href="#home-collection">Home Collection</a>
+    </nav>
+
+    <!-- 4. PERSONAL COLLECTION -->
+    <section class="collection-segment" id="personal-collection">
+        <div class="segment-header">
+            <p class="segment-eyebrow">Untuk Dikenakan</p>
+            <h2 class="segment-title">Personal Collection</h2>
+            <p class="segment-desc">Kristal yang dirancang untuk menemani keseharian Anda &mdash; dikenakan sebagai
+                perhiasan yang membawa energi keberuntungan, ketenangan, dan perlindungan pribadi.</p>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Gelang Kristal Kuarsa Imperial">
+                </div>
+                <h3 class="card-title">Gelang Kristal Kuarsa Imperial</h3>
+                <p class="card-desc">Membawa energi positif dan keseimbangan bagi pemakainya sepanjang hari.</p>
+                <a href="item-detail.html" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Kalung Liontin Giok Imperial">
+                </div>
+                <h3 class="card-title">Kalung Liontin Giok Imperial</h3>
+                <p class="card-desc">Simbol keberuntungan klasik, diukir halus dari giok imperial pilihan.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Cincin Citrine Rezeki">
+                </div>
+                <h3 class="card-title">Cincin Citrine Rezeki</h3>
+                <p class="card-desc">Dikenal sebagai batu rezeki, cocok mendatangkan kemakmuran dalam genggaman.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Gelang Batu Tiger Eye">
+                </div>
+                <h3 class="card-title">Gelang Batu Tiger Eye</h3>
+                <p class="card-desc">Dipercaya memberi keberanian dan fokus bagi pemakainya dalam mengambil keputusan.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Kalung Liontin Kuarsa Rose">
+                </div>
+                <h3 class="card-title">Kalung Liontin Kuarsa Rose</h3>
+                <p class="card-desc">Melambangkan cinta dan kasih sayang, cocok dikenakan sehari-hari.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Gelang Kristal Ametis">
+                </div>
+                <h3 class="card-title">Gelang Kristal Ametis</h3>
+                <p class="card-desc">Membantu menenangkan pikiran dan menjaga kejernihan spiritual pemakainya.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Cincin Jadeite Klasik">
+                </div>
+                <h3 class="card-title">Cincin Jadeite Klasik</h3>
+                <p class="card-desc">Potongan jadeite imperial pilihan dengan desain elegan dan abadi.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Kalung Liontin Obsidian Hitam">
+                </div>
+                <h3 class="card-title">Kalung Liontin Obsidian Hitam</h3>
+                <p class="card-desc">Dipercaya menyerap energi negatif dan menjaga perlindungan pemakainya.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Gelang Kristal Kuarsa Hijau">
+                </div>
+                <h3 class="card-title">Gelang Kristal Kuarsa Hijau</h3>
+                <p class="card-desc">Melambangkan pertumbuhan dan kelimpahan, cocok untuk pemilik usaha.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Bros Kristal Giok Ukir">
+                </div>
+                <h3 class="card-title">Bros Kristal Giok Ukir</h3>
+                <p class="card-desc">Aksesori elegan berukir tangan, menghadirkan sentuhan kemewahan klasik.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. HOME COLLECTION -->
+    <section class="collection-segment" id="home-collection">
+        <div class="segment-header">
+            <p class="segment-eyebrow">Untuk Ruang Anda</p>
+            <h2 class="segment-title">Home Collection</h2>
+            <p class="segment-desc">Kristal dan ornamen fengshui yang dirancang untuk menghadirkan harmoni,
+                keberuntungan, dan kemakmuran ke dalam rumah maupun tempat usaha Anda.</p>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Piramida Kristal Kuarsa">
+                </div>
+                <h3 class="card-title">Piramida Kristal Kuarsa</h3>
+                <p class="card-desc">Dipercaya menyeimbangkan energi ruangan dan memperkuat aliran qi positif.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Patung Naga Giok Imperial">
+                </div>
+                <h3 class="card-title">Patung Naga Giok Imperial</h3>
+                <p class="card-desc">Simbol kekuasaan dan pelindung rumah, diukir dari giok imperial pilihan.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Bola Kristal Fengshui">
+                </div>
+                <h3 class="card-title">Bola Kristal Fengshui</h3>
+                <p class="card-desc">Menyalurkan energi positif secara merata ke seluruh penjuru ruangan.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Pohon Rezeki Kristal Citrine">
+                </div>
+                <h3 class="card-title">Pohon Rezeki Kristal Citrine</h3>
+                <p class="card-desc">Ornamen klasik yang dipercaya mendatangkan kemakmuran bagi pemiliknya.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Ornamen Kura-Kura Giok">
+                </div>
+                <h3 class="card-title">Ornamen Kura-Kura Giok</h3>
+                <p class="card-desc">Melambangkan umur panjang dan stabilitas dalam kehidupan maupun usaha.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Cluster Kristal Ametis">
+                </div>
+                <h3 class="card-title">Cluster Kristal Ametis</h3>
+                <p class="card-desc">Menghadirkan ketenangan dan kejernihan energi di ruang kerja maupun ruang tamu.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Geode Kristal Alami">
+                </div>
+                <h3 class="card-title">Geode Kristal Alami</h3>
+                <p class="card-desc">Potongan alami dengan formasi unik, menjadi centerpiece estetis nan berenergi.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Patung Buddha Tertawa Giok">
+                </div>
+                <h3 class="card-title">Patung Buddha Tertawa Giok</h3>
+                <p class="card-desc">Simbol kebahagiaan dan kelimpahan, dipercaya membawa keberuntungan bagi rumah.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Lonceng Angin Kristal Fengshui">
+                </div>
+                <h3 class="card-title">Lonceng Angin Kristal Fengshui</h3>
+                <p class="card-desc">Menghalau energi negatif sekaligus mempercantik area pintu masuk rumah.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png" alt="Vas Dekorasi Batu Giok">
+                </div>
+                <h3 class="card-title">Vas Dekorasi Batu Giok</h3>
+                <p class="card-desc">Sentuhan estetis dan energi harmoni untuk mempercantik ruang keluarga.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+</body>
+
+</html>

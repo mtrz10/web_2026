@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi Kami - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           3. PAGE HERO
+           ========================================== */
+        .page-hero {
+            position: relative;
+            padding: 200px 20px 90px;
+            text-align: center;
+            background: linear-gradient(rgba(156, 5, 18, 0.55), rgba(23, 24, 23, 0.75)),
+                url('img/banner.jpeg') center/cover no-repeat;
+        }
+
+        .page-hero-eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-secondary);
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--color-secondary);
+        }
+
+        /* ==========================================
+           4. LOCATION SECTION
+           ========================================== */
+        /* peta full-bleed: menempel di bawah navbar (tinggi 73px) dan sampai tepi kanan layar */
+        .location-section {
+            background-color: var(--color-secondary);
+            padding-top: 73px;
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            min-height: calc(100vh - 73px);
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 50px 60px max(50px, calc((100vw - 1200px) / 2));
+        }
+
+        .location-info h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: var(--color-font);
+        }
+
+        .location-address {
+            font-size: 0.98rem;
+            opacity: 0.85;
+            margin-bottom: 35px;
+            max-width: 380px;
+        }
+
+        .location-address strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .btn-dark {
+            display: inline-block;
+            width: fit-content;
+            padding: 15px 35px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .map-frame {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            background-color: #f2f2f2;
+        }
+
+        .map-pin {
+            width: 38px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .map-pin svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+        }
+
+        .maplibregl-popup-content {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--color-font);
+            padding: 14px 18px;
+        }
+
+        .maplibregl-popup-content strong {
+            display: block;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        /* ==========================================
+           6. RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 900px) {
+            .location-container {
+                grid-template-columns: 1fr;
+                min-height: 0;
+            }
+
+            .location-info {
+                padding: 50px 30px;
+            }
+
+            .location-address {
+                max-width: none;
+            }
+
+            .map-frame {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 160px 20px 60px;
+            }
+
+            .page-hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .location-section {
+                padding-top: 63px;
+            }
+
+            .location-info {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+    <!-- 3. LOCATION SECTION -->
+    <section class="location-section">
+        <div class="location-container">
+            <div class="location-info">
+                <h2>Gallery Kami</h2>
+                <p class="location-address">
+                    <strong>Anggara Treasures</strong>
+                    Jl. Prof. DR. Satrio No.Kav.11, RT.4/RW.3, Kuningan, Karet Semanggi,
+                    Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12930
+                </p>
+                <a href="https://maps.app.goo.gl/dPyd61cDW7T2n2gWA" target="_blank" rel="noopener" class="btn-dark">
+                    Buka di Google Maps
+                </a>
+            </div>
+            <div class="map-frame" id="map" role="region" aria-label="Peta lokasi Anggara Treasures"></div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+    <script src="navbar.js"></script>
+    <script>
+
+        // peta: hanya satu penanda (lokasi butik), tanpa ikon tempat lain
+        const LOKASI = [106.8194438, -6.2219461]; // [longitude, latitude]
+
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://tiles.openfreemap.org/styles/positron',
+            center: LOKASI,
+            zoom: 14,
+            scrollZoom: false,
+            attributionControl: { compact: true }
+        });
+
+        map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+        // atribusi (wajib oleh lisensi OSM/OpenFreeMap) dilipat jadi ikon "i"; teks muncul saat diklik
+        map.once('idle', () => {
+            const attrib = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+            if (attrib) {
+                attrib.removeAttribute('open');
+                attrib.classList.remove('maplibregl-compact-show');
+            }
+        });
+
+        // pastikan tidak ada ikon tempat/POI yang ikut tampil
+        map.on('load', () => {
+            map.getStyle().layers.forEach((layer) => {
+                if (/poi|airport/i.test(layer.id)) {
+                    map.setLayoutProperty(layer.id, 'visibility', 'none');
+                }
+            });
+        });
+
+        const pin = document.createElement('div');
+        pin.className = 'map-pin';
+        pin.title = 'Anggara Treasures';
+        pin.innerHTML = '<svg viewBox="0 0 384 512" aria-hidden="true"><path fill="#9c0512" d="M215.7 499.2C267 435 384 279.4 384 192C384 85.96 298 0 192 0S0 85.96 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0z"/><circle cx="192" cy="192" r="70" fill="#fff"/></svg>';
+
+        new maplibregl.Marker({ element: pin, anchor: 'bottom' })
+            .setLngLat(LOKASI)
+            .setPopup(new maplibregl.Popup({ offset: 46 })
+                .setHTML('<strong>Anggara Treasures</strong>Jl. Prof. DR. Satrio No.Kav.11, Kuningan, Jakarta Selatan'))
+            .addTo(map);
+
+        // zoom dengan scroll baru aktif setelah peta diklik, agar scroll halaman tidak terganggu
+        map.on('click', () => map.scrollZoom.enable());
+        map.getContainer().addEventListener('mouseleave', () => map.scrollZoom.disable());
+        window.addEventListener('load', () => map.resize());
+    </script>
+</body>
+
+</html>

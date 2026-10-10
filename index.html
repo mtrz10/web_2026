@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anggara Treasures - Kristal Imperial Fengshui</title>
+    <!-- Google Fonts untuk Tipografi Elegan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Hero scrollytelling: Inter sebagai cadangan SF Pro di perangkat non-Apple -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            /* Red Cartier */
+            --color-secondary: #ffffff;
+            /* White */
+            --color-font: #171817;
+            /* Scholar Ink */
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* ==========================================
+           3. HERO SECTION (FULLSCREEN DISPLAY)
+           ========================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(156, 5, 18, 0.4), rgba(156, 5, 18, 0.8)),
+                url('img/banner.jpeg') center/cover no-repeat;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           3B. AS SEEN ON
+           ========================================== */
+        .as-seen {
+            background-color: #ffffff;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .as-seen-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-font);
+            margin-bottom: 40px;
+        }
+
+        .as-seen-label::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+        }
+
+        .as-seen-track {
+            overflow: hidden;
+            width: 100%;
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .as-seen-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 50px;
+            width: max-content;
+            animation: as-seen-scroll 22s linear infinite;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .as-seen-track:hover .as-seen-row {
+                animation-play-state: paused;
+            }
+        }
+
+        @keyframes as-seen-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .as-seen-logo {
+            display: inline-flex;
+            align-items: center;
+            height: 32px;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .as-seen-logo:hover {
+            opacity: 1;
+        }
+
+        .as-seen-logo img {
+            height: 100%;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+        }
+
+        .as-seen-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: var(--color-font);
+            white-space: nowrap;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .as-seen-row {
+                animation: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .as-seen {
+                padding: 44px 20px;
+            }
+
+            .as-seen-row {
+                gap: 36px;
+            }
+
+            .as-seen-logo {
+                height: 24px;
+            }
+
+            .as-seen-logo-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ==========================================
+           4. JURNAL / ARTIKEL SECTION
+           ========================================== */
+        .journal {
+            padding: 110px 50px;
+            background-color: #ffffff;
+        }
+
+        .journal-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .journal-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 22px;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .journal-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-primary);
+        }
+
+        .journal-all {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-font);
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .journal-all:hover,
+        .journal-all:focus-visible {
+            color: var(--color-primary);
+        }
+
+        /* Kartu mengikuti gaya .tl-card di about.html (section timeline):
+           kartu gelap, gambar persegi di atas, border merah di body, judul
+           rata tengah dengan label bergaris di bawahnya. */
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 50px;
+        }
+
+        .journal-item {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-secondary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            color: var(--color-font);
+        }
+
+        .journal-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .journal-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .journal-item:hover .journal-img-wrapper img,
+        .journal-item:focus-within .journal-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .journal-body {
+            padding: 34px 30px 38px;
+            border-top: 3px solid var(--color-primary);
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .journal-item-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.35;
+            text-align: center;
+            color: var(--color-font);
+        }
+
+        .journal-num {
+            display: block;
+            width: 40px;
+            height: 1px;
+            margin: 16px auto 0;
+            background-color: var(--color-primary);
+            opacity: 0.6;
+        }
+
+        .journal-desc {
+            font-size: 0.93rem;
+            line-height: 1.65;
+            opacity: 0.78;
+            margin-top: 20px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .journal-more {
+            display: inline-block;
+            align-self: center;
+            margin-top: auto;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .journal-more:hover,
+        .journal-more:focus-visible {
+            color: var(--color-font);
+        }
+
+        /* ==========================================
+           5. BRAND STORY SECTION (LIGHT CONTRAST)
+           ========================================== */
+        .story {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 120px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .story-content p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 14px 30px;
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        /* ==========================================
+           5B. THE ART OF IMPERIAL FENG SHUI
+           Panel gambar-teks full-bleed selang-seling,
+           terinspirasi gaya editorial rumah mode/jam
+           tangan mewah (mis. A. Lange & Söhne).
+           ========================================== */
+        .art-imperial {
+            background-color: var(--color-secondary);
+            padding: 120px 0;
+        }
+
+        .art-imperial-head {
+            max-width: 720px;
+            margin: 0 auto 100px;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .art-eyebrow {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .art-title {
+            font-family: var(--font-heading);
+            font-size: 2.6rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-font);
+        }
+
+        .art-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 560px;
+        }
+
+        .art-panel:not(:last-child) {
+            margin-bottom: 90px;
+        }
+
+        .art-panel.reverse {
+            direction: rtl;
+        }
+
+        .art-panel.reverse>* {
+            direction: ltr;
+        }
+
+        .art-panel-img {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .art-panel-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .art-panel:hover .art-panel-img img {
+            transform: scale(1.05);
+        }
+
+        .art-panel-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .art-panel-text .art-eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .art-panel-text h3 {
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--color-font);
+            margin-bottom: 20px;
+        }
+
+        .art-panel-text p {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            opacity: 0.78;
+            color: var(--color-font);
+        }
+
+        .art-panel-link {
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 28px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 3px;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .art-panel-link:hover,
+        .art-panel-link:focus-visible {
+            color: var(--color-font);
+        }
+
+
+        /* ==========================================
+           8. RESPONSIVE DESIGN (MOBILE ADAPTATION)
+           ========================================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .journal,
+            .story {
+                padding: 70px 20px;
+            }
+
+            .journal-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            .journal-title {
+                font-size: 2rem;
+            }
+
+            .journal-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .art-imperial {
+                padding: 70px 0;
+            }
+
+            .art-imperial-head {
+                margin-bottom: 60px;
+            }
+
+            .art-title {
+                font-size: 2rem;
+            }
+
+            .art-panel,
+            .art-panel.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                min-height: 0;
+            }
+
+            .art-panel:not(:last-child) {
+                margin-bottom: 50px;
+            }
+
+            .art-panel-img {
+                aspect-ratio: 4 / 3;
+            }
+
+            .art-panel-text {
+                max-width: none;
+                padding: 40px 25px;
+            }
+        }
+
+        /* Tablet: 4 kolom terlalu sempit, pecah jadi 2 kolom */
+        @media (min-width: 769px) and (max-width: 1100px) {
+            .journal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+    <!-- 2. HERO SECTION (scrollytelling, 400vh runway) -->
+    <section class="hs" id="hs-story" aria-label="Kristal Imperial Feng Shui terurai dan menyatu kembali">
+        <div class="hs-stage">
+            <canvas id="hs-canvas" role="img"
+                aria-label="Animasi serpihan kristal Imperial Feng Shui menyatu menjadi satu bentuk"></canvas>
+
+            <div class="hs-grid" aria-hidden="true"></div>
+            <div class="hs-rail" aria-hidden="true"><span></span></div>
+
+            <!-- loading -->
+            <div id="hs-loader" role="status" aria-live="polite">
+                <span>Memuat</span>
+                <span class="hs-loader-line"><span id="hs-loader-fill"></span></span>
+                <span class="hs-loader-pct" id="hs-loader-pct">0%</span>
+            </div>
+
+            <!-- [0–15%] HERO -->
+            <div class="hs-beat hs-center hs-top aktif" data-from="0" data-to="0.15">
+                <div class="hs-inner">
+                    <h1>Kristal Imperial Feng Shui</h1>
+                    <p class="hs-sub">Warisan imperial, dalam bentuk yang tenang.</p>
+                    <p class="hs-note">Dari Anggara Treasures, dikurasi berdasarkan lineage Imperial Feng Shui Kaisar
+                        Qian Long.</p>
+                    <span class="hs-hint" aria-hidden="true"><i></i>Gulir</span>
+                </div>
+            </div>
+
+            <!-- [15–40%] MATERIAL & PRESISI -->
+            <div class="hs-beat hs-left" data-from="0.15" data-to="0.40">
+                <div class="hs-inner">
+                    <p class="hs-eyebrow">Material</p>
+                    <h2>Dipilih dengan cermat, dibentuk dengan presisi.</h2>
+                    <p>Setiap kristal melalui seleksi material, kejernihan, dan potongan sebelum sampai ke tangan Anda.
+                    </p>
+                    <p>Tidak ada detail yang dibiarkan kebetulan.</p>
+                </div>
+            </div>
+
+            <!-- [40–65%] DESAIN IMPERIAL -->
+            <div class="hs-beat hs-right" data-from="0.40" data-to="0.65">
+                <div class="hs-inner">
+                    <p class="hs-eyebrow">Desain Imperial</p>
+                    <h2>Setiap detail punya alasan.</h2>
+                    <ul class="hs-points">
+                        <li>Bentuk mengikuti prinsip Imperial Feng Shui.</li>
+                        <li>Simbol dan proporsi dirancang dengan makna, bukan sekadar hiasan.</li>
+                        <li>Sederhana dalam tampilan, kaya dalam tradisi.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- [65–85%] PENEMPATAN -->
+            <div class="hs-beat hs-left" data-from="0.65" data-to="0.85">
+                <div class="hs-inner">
+                    <p class="hs-eyebrow">Penempatan</p>
+                    <h2>Ditempatkan dengan tepat.</h2>
+                    <p>Dalam Imperial Feng Shui, arah dan kondisi ruang menentukan letak yang sesuai.</p>
+                    <p>Kristal ini dirancang untuk melengkapi ruang yang sudah tertata, bukan menggantikannya.</p>
+                </div>
+            </div>
+
+            <!-- [85–100%] PERAKITAN ULANG & CTA -->
+            <div class="hs-beat hs-center hs-bottom" data-from="0.85" data-to="1.01">
+                <div class="hs-inner">
+                    <h2>Tenang dalam bentuk. Tertata dalam makna.</h2>
+                    <p class="hs-sub">Kristal Imperial Feng Shui dari Anggara Treasures. Dirancang untuk ruang yang Anda
+                        jaga dengan serius.</p>
+                    <div class="hs-cta">
+                        <a class="hs-btn" href="koleksi.html">See The Collections</a>
+                        <a class="hs-link" href="lokasi.html">Konsultasi penempatan (tanpa komitmen)</a>
+                    </div>
+                    <p class="hs-note">Untuk rumah, kantor, toko, dan ruang mana pun yang Anda hargai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2B. AS SEEN ON (placeholder, ganti dengan logo media/partner asli) -->
+    <section class="as-seen" aria-label="Sebagaimana Diliput Oleh">
+        <p class="as-seen-label">As Seen On</p>
+        <div class="as-seen-track">
+            <div class="as-seen-row">
+                <a class="as-seen-logo" href="https://daerah.sindonews.com/read/1675971/6/anggara-treasures-rayakan-2-tahun-perjalanan-imperial-feng-shui-di-jakarta-1770789743" target="_blank" rel="noopener noreferrer"><span class="as-seen-logo-text">Sindonews</span></a>
+                <a class="as-seen-logo" href="https://rm.id/baca-berita/etalase-bisnis/301382/anggara-treasures-luncurkan-platform-analisis-bazi-gratis-tanpa-batas" target="_blank" rel="noopener noreferrer"><img src="img/seenon/logo-rmid.png" alt="RM.ID" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.jpnn.com/news/rilis-buku-how-to-prosper-like-emperors-rezza-anggara-bedah-logika-imperial-feng-shui-untuk-bisnis-modern" target="_blank" rel="noopener noreferrer"><img src="img/seenon/jpnn.png" alt="JPNN" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.suaramerdeka.com/gaya-hidup/0416705450/rayakan-2-tahun-perjalanan-anggara-treasures-usung-konsep-imperial-fengshui" target="_blank" rel="noopener noreferrer"><img src="img/seenon/suaramerdeka.webp" alt="Suara Merdeka" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.idntimes.com/men/attitude/tak-cuma-ritual-upaya-bedah-logika-imperial-feng-shui-lewat-buku-00-f411s-4083k6" target="_blank" rel="noopener noreferrer"><img src="img/seenon/idn.svg" alt="IDN Times" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://marketing.co.id/menentukan-keberuntungan-lewat-imperial-feng-shui/" target="_blank" rel="noopener noreferrer"><img src="img/seenon/marketing.co.id.png" alt="Marketing.co.id" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.danamon.co.id/news/2026/03/03/Peluang-Besar-Sekaligus-Risiko-Nyata-di-Tahun-Kuda-Api" target="_blank" rel="noopener noreferrer"><img src="img/seenon/danamon.svg" alt="Danamon" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://daerah.sindonews.com/read/1675971/6/anggara-treasures-rayakan-2-tahun-perjalanan-imperial-feng-shui-di-jakarta-1770789743" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><span class="as-seen-logo-text">Sindonews</span></a>
+                <a class="as-seen-logo" href="https://rm.id/baca-berita/etalase-bisnis/301382/anggara-treasures-luncurkan-platform-analisis-bazi-gratis-tanpa-batas" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="img/seenon/logo-rmid.png" alt="" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.jpnn.com/news/rilis-buku-how-to-prosper-like-emperors-rezza-anggara-bedah-logika-imperial-feng-shui-untuk-bisnis-modern" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="img/seenon/jpnn.png" alt="" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.suaramerdeka.com/gaya-hidup/0416705450/rayakan-2-tahun-perjalanan-anggara-treasures-usung-konsep-imperial-fengshui" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="img/seenon/suaramerdeka.webp" alt="" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.idntimes.com/men/attitude/tak-cuma-ritual-upaya-bedah-logika-imperial-feng-shui-lewat-buku-00-f411s-4083k6" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="img/seenon/idn.svg" alt="" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://marketing.co.id/menentukan-keberuntungan-lewat-imperial-feng-shui/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="img/seenon/marketing.co.id.png" alt="" loading="lazy"></a>
+                <a class="as-seen-logo" href="https://www.danamon.co.id/news/2026/03/03/Peluang-Besar-Sekaligus-Risiko-Nyata-di-Tahun-Kuda-Api" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="img/seenon/danamon.svg" alt="" loading="lazy"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. JURNAL / ARTIKEL SECTION -->
+    <section class="journal" id="jurnal" aria-labelledby="jurnal-title" style="display: none;">
+        <div class="journal-inner">
+            <div class="journal-header">
+                <h2 class="journal-title" id="jurnal-title">Artikel</h2>
+                <a class="journal-all" href="jurnal.html">Lihat semua artikel <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <div class="journal-grid">
+                <article class="journal-item">
+                    <div class="journal-img-wrapper">
+                        <img src="img/bnr2.jpeg" alt="Pengrajin mengukir kristal giok dengan tangan" loading="lazy">
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-item-title">Memahami Arah Baik dalam Imperial Feng Shui</h3>
+                        <span class="journal-num" aria-hidden="true"></span>
+                        <p class="journal-desc">Dalam Imperial Feng Shui, arah bukan sekadar mata angin—ia menentukan
+                            bagaimana energi mengalir dan berkumpul di sebuah ruang. Artikel ini mengupas cara membaca
+                            kompas feng shui sederhana untuk menemukan posisi yang paling mendukung keberuntungan dan
+                            ketenangan di rumah maupun tempat usaha Anda.</p>
+                        <a href="artikel.html" class="journal-more">Discover More&hellip;</a>
+                    </div>
+                </article>
+                <article class="journal-item">
+                    <div class="journal-img-wrapper">
+                        <img src="img/bnr2.jpeg" alt="Pengrajin mengukir kristal giok dengan tangan" loading="lazy">
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-item-title">Mengapa Giok Dipercaya Selama Ribuan Tahun</h3>
+                        <span class="journal-num" aria-hidden="true"></span>
+                        <p class="journal-desc">Sejak masa Dinasti Qing, giok dipandang sebagai batu para
+                            bangsawan—lambang kemurnian, kekuasaan, dan perlindungan. Simak perjalanan panjang giok dari
+                            istana kekaisaran hingga menjadi salah satu kristal fengshui paling dihormati di dunia,
+                            serta alasan di balik kepercayaan itu bertahan hingga kini.</p>
+                        <a href="artikel.html" class="journal-more">Discover More&hellip;</a>
+                    </div>
+                </article>
+                <article class="journal-item">
+                    <div class="journal-img-wrapper">
+                        <img src="img/bnr2.jpeg" alt="Pengrajin mengukir kristal giok dengan tangan" loading="lazy">
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-item-title">Menempatkan Kristal di Ruang Kerja Anda</h3>
+                        <span class="journal-num" aria-hidden="true"></span>
+                        <p class="journal-desc">Ruang kerja yang tertata dengan prinsip feng shui dipercaya dapat
+                            memperlancar fokus, karier, dan rezeki. Pelajari titik-titik penempatan kristal yang tepat
+                            di meja maupun sudut ruangan, agar energi positif bekerja mendukung produktivitas Anda
+                            sehari-hari.</p>
+                        <a href="artikel.html" class="journal-more">Discover More&hellip;</a>
+                    </div>
+                </article>
+                <article class="journal-item">
+                    <div class="journal-img-wrapper">
+                        <img src="img/bnr2.jpeg" alt="Pengrajin mengukir kristal giok dengan tangan" loading="lazy">
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-item-title">Membaca Peta BaZi: Titik Awal Anda</h3>
+                        <span class="journal-num" aria-hidden="true"></span>
+                        <p class="journal-desc">Peta BaZi, atau Empat Pilar Nasib, adalah titik awal untuk memahami
+                            potensi dan tantangan hidup berdasarkan waktu kelahiran. Kenali dasar-dasar membaca elemen
+                            dalam peta BaZi Anda sendiri sebagai langkah pertama menuju keputusan yang lebih selaras
+                            dengan energi diri.</p>
+                        <a href="artikel.html" class="journal-more">Discover More&hellip;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. STORYTELLING SECTION -->
+    <section class="story">
+        <div class="story-container">
+            <div class="story-img">
+                <img src="img/artisan.jpeg" alt="Kerajinan Kristal Fengshui">
+            </div>
+            <div class="story-content">
+                <h2>Imperial Feng Shui Legacy</h2>
+                <p>Anggara Treasures menghadirkan kristal imperial fengshui pilihan yang dikurasi dengan teliti,
+                    dipercaya membawa keberuntungan, kemakmuran, dan keseimbangan energi bagi rumah maupun usaha Anda.
+                </p>
+                <a href="#" class="btn-outline">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4B. THE ART OF IMPERIAL FENG SHUI -->
+    <section class="art-imperial" id="seni-imperial">
+        <div class="art-imperial-head">
+            <p class="art-eyebrow">Philosophy</p>
+            <h2 class="art-title">The Art of Imperial Feng Shui</h2>
+        </div>
+
+        <div class="art-panel">
+            <div class="art-panel-img">
+                <img src="img/kiri.jpeg" alt="Ruang istana dengan naga giok dan bola kristal di atas meja kayu">
+            </div>
+            <div class="art-panel-text">
+                <p class="art-eyebrow">01 &mdash; Heritage</p>
+                <h3>A Legacy from the Forbidden City</h3>
+                <p>Imperial Feng Shui lahir dari istana Dinasti Qing, tempat setiap penempatan benda dan setiap
+                    ukiran giok memiliki makna. Warisan ini kami jaga dengan menghadirkan kristal yang setia pada
+                    filosofi aslinya&mdash;bukan sekadar dekorasi.</p>
+                <a href="about.html" class="art-panel-link">Discover More <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </div>
+
+        <div class="art-panel reverse">
+            <div class="art-panel-img">
+                <img src="img/kanan.jpeg" alt="Sosok berbusana kaisar Qing memandang kota modern dari atap gedung">
+            </div>
+            <div class="art-panel-text">
+                <p class="art-eyebrow">02 &mdash; Philosophy</p>
+                <h3>Ancient Wisdom, Modern Spaces</h3>
+                <p>Prinsip Yin dan Yang, serta keseimbangan lima elemen, tetap relevan bagi ruang masa kini.
+                    Anggara Treasures menjadi jembatan antara kebijaksanaan lama dan kehidupan modern Anda.</p>
+                <a href="artikel.html" class="art-panel-link">Discover More <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </div>
+
+        <div class="art-panel">
+            <div class="art-panel-img">
+                <img src="img/tengah.jpeg" alt="Aula istana kekaisaran Tiongkok yang megah">
+            </div>
+            <div class="art-panel-text">
+                <p class="art-eyebrow">03 &mdash; craftsmanship</p>
+                <h3>Carved by Hand, Guided by Tradition</h3>
+                <p>Setiap kristal melewati tangan pengrajin yang mewarisi teknik ukir istana selama beberapa
+                    generasi. Presisi dan kesabaran menjadi syarat mutlak sebelum sebuah kristal layak disebut
+                    Imperial.</p>
+                <a href="koleksi.html" class="art-panel-link">See The Collections <span
+                        aria-hidden="true">&rarr;</span></a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="hero.js"></script>
+    <script src="navbar.js"></script>
+</body>
+
+</html>

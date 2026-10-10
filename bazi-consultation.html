@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaZi Consultation - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           2. BREADCRUMB BAR
+           ========================================== */
+        .crumb-bar {
+            margin-top: 73px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 16px 50px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .crumb-bar a {
+            opacity: 0.65;
+            transition: opacity 0.3s;
+        }
+
+        .crumb-bar a:hover {
+            opacity: 1;
+        }
+
+        .crumb-bar .sep {
+            margin: 0 10px;
+            color: #e0333f;
+        }
+
+        /* ==========================================
+           3. SECTION PUTIH / MERAH (BERGANTIAN)
+           ========================================== */
+        .bz-section-white {
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+        }
+
+        .bz-section-red {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .bz-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .bz-section-white .bz-eyebrow {
+            color: var(--color-primary);
+        }
+
+        .bz-section-red .bz-eyebrow {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .bz-hero .bz-eyebrow {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* --- HERO (GAMBAR PENUH) --- */
+        .bz-hero {
+            position: relative;
+            min-height: 86vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 170px 30px 90px;
+            background: linear-gradient(rgba(156, 5, 18, 0.4), rgba(23, 24, 23, 0.85)),
+                url('img/kiri.jpeg') center/cover no-repeat fixed;
+            color: var(--color-secondary);
+        }
+
+        .bz-hero-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .bz-hero-inner h1 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 3.4rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bz-hero-inner h1 .accent {
+            color: #e0333f;
+        }
+
+        .bz-divider {
+            width: 90px;
+            height: 2px;
+            background: var(--color-secondary);
+            opacity: 0.7;
+            margin: 28px auto 30px;
+        }
+
+        .bz-hero-inner p.bz-sub {
+            font-size: 1.02rem;
+            opacity: 0.85;
+            max-width: 560px;
+            margin: 0 auto 42px;
+        }
+
+        .bz-price-box {
+            display: inline-block;
+            padding: 26px 50px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            margin-bottom: 36px;
+            width: fit-content;
+        }
+
+        .bz-price-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.75;
+            margin-bottom: 10px;
+        }
+
+        .bz-price {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+
+        .bz-price span {
+            font-size: 0.95rem;
+            font-weight: 400;
+            opacity: 0.75;
+        }
+
+        .bz-cta-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .bz-hero-inner .bz-btn-fill,
+        .bz-hero-inner .bz-btn-outline {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .bz-hero-inner .bz-btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary);
+        }
+
+        .bz-btn-fill,
+        .bz-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 17px 36px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .bz-section-red .bz-btn-fill {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .bz-section-red .bz-btn-outline {
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary);
+        }
+
+        .bz-section-white .bz-btn-fill {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .bz-section-white .bz-btn-outline {
+            border: 1px solid var(--color-font);
+            color: var(--color-font);
+        }
+
+        .bz-btn-fill:hover,
+        .bz-btn-outline:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        .bz-note {
+            margin-top: 22px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* --- STATS (PUTIH) --- */
+        .bz-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid rgba(23, 24, 23, 0.1);
+            border-bottom: 1px solid rgba(23, 24, 23, 0.1);
+            padding: 50px 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bz-stat {
+            text-align: center;
+        }
+
+        .bz-stat-num {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .bz-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.65;
+        }
+
+        /* --- BLOK 2 KOLOM (EYEBROW+JUDUL / PARAGRAF) --- */
+        .bz-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 100px 50px;
+        }
+
+        .bz-split h2 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bz-split-body {
+            padding-left: 40px;
+            border-left: 1px solid;
+        }
+
+        .bz-section-white .bz-split-body {
+            border-left-color: rgba(23, 24, 23, 0.15);
+        }
+
+        .bz-section-red .bz-split-body {
+            border-left-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .bz-split-body p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 18px;
+        }
+
+        .bz-split-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- FITUR 4 KOLOM --- */
+        .bz-features {
+            padding: 90px 50px;
+            text-align: center;
+        }
+
+        .bz-features-head {
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .bz-features-head h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.2rem;
+            margin-top: 10px;
+        }
+
+        .bz-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1180px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .bz-feature-card {
+            padding: 32px 26px;
+            border: 1px solid;
+        }
+
+        .bz-section-white .bz-feature-card {
+            border-color: rgba(23, 24, 23, 0.15);
+        }
+
+        .bz-section-red .bz-feature-card {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .bz-feature-num {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+
+        .bz-section-white .bz-feature-num {
+            color: var(--color-primary);
+        }
+
+        .bz-section-red .bz-feature-num {
+            color: var(--color-secondary);
+        }
+
+        .bz-feature-card h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .bz-feature-card p {
+            font-size: 0.9rem;
+            opacity: 0.78;
+        }
+
+        /* --- PROSES (3 LANGKAH) --- */
+        .bz-process {
+            padding: 90px 50px 100px;
+        }
+
+        .bz-process-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .bz-process-head h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.2rem;
+            margin-top: 10px;
+        }
+
+        .bz-process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bz-process-step {
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .bz-process-step .step-num {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            margin-bottom: 18px;
+        }
+
+        .bz-section-white .step-num {
+            color: var(--color-primary);
+        }
+
+        .bz-section-red .step-num {
+            color: var(--color-secondary);
+        }
+
+        .bz-process-step h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+        }
+
+        .bz-process-step p {
+            font-size: 0.92rem;
+            opacity: 0.78;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* --- UNTUK SIAPA (2 KARTU BRACKET) --- */
+        .bz-fit {
+            padding: 100px 50px;
+        }
+
+        .bz-fit-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .bz-fit-head h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.2rem;
+            margin-top: 10px;
+        }
+
+        .bz-fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bz-fit-card {
+            position: relative;
+            padding: 44px 38px;
+            border: 1px solid;
+        }
+
+        .bz-section-white .bz-fit-card {
+            border-color: rgba(23, 24, 23, 0.15);
+        }
+
+        .bz-section-red .bz-fit-card {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .bz-fit-card::before,
+        .bz-fit-card::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+
+        .bz-section-white .bz-fit-card::before,
+        .bz-section-white .bz-fit-card::after {
+            --corner-color: var(--color-primary);
+        }
+
+        .bz-section-red .bz-fit-card::before,
+        .bz-section-red .bz-fit-card::after {
+            --corner-color: var(--color-secondary);
+        }
+
+        .bz-fit-card::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid var(--corner-color);
+            border-left: 2px solid var(--corner-color);
+        }
+
+        .bz-fit-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid var(--corner-color);
+            border-right: 2px solid var(--corner-color);
+        }
+
+        .bz-fit-card h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.3rem;
+            margin-bottom: 22px;
+        }
+
+        .bz-fit-card ul {
+            list-style: none;
+        }
+
+        .bz-fit-card li {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .bz-fit-card li::before {
+            content: "\2013";
+            position: absolute;
+            left: 0;
+        }
+
+        .bz-section-white .bz-fit-card li::before {
+            color: var(--color-primary);
+        }
+
+        .bz-section-red .bz-fit-card li::before {
+            color: var(--color-secondary);
+        }
+
+        /* --- KOMITMEN --- */
+        .bz-commit {
+            text-align: center;
+            padding: 100px 30px;
+        }
+
+        .bz-commit-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bz-commit h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            margin-top: 10px;
+            margin-bottom: 22px;
+        }
+
+        .bz-commit p {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        /* --- HARGA ULANG / CTA AKHIR --- */
+        .bz-cta-final {
+            text-align: center;
+            padding: 100px 30px;
+        }
+
+        .bz-cta-final .bz-price-box {
+            display: inline-block;
+        }
+
+        /* --- FAQ ACCORDION --- */
+        .bz-faq {
+            padding: 100px 30px;
+        }
+
+        .bz-faq-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .bz-faq-head {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .bz-faq-head h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.2rem;
+            margin-top: 10px;
+        }
+
+        .bz-faq details {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 22px 0;
+        }
+
+        .bz-faq summary {
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .bz-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .bz-faq summary::after {
+            content: "+";
+            font-size: 1.4rem;
+            color: var(--color-secondary);
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .bz-faq details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .bz-faq details p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 16px;
+            max-width: 620px;
+        }
+
+        /* --- TAUTAN KEMBALI --- */
+        .bz-back {
+            border-top: 1px solid rgba(23, 24, 23, 0.1);
+            padding: 40px 50px 60px;
+            text-align: center;
+        }
+
+        .bz-back a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.75;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-primary);
+            padding-bottom: 6px;
+            transition: opacity 0.3s;
+        }
+
+        .bz-back a:hover {
+            opacity: 1;
+        }
+
+        /* ==========================================
+           4. ANIMASI MUNCUL SAAT SCROLL
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ==========================================
+           5. RESPONSIVE
+           ========================================== */
+        @media (max-width: 1024px) {
+            .bz-hero-inner h1 {
+                font-size: 2.6rem;
+            }
+
+            .bz-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 36px;
+            }
+
+            .bz-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bz-process-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .bz-hero {
+                min-height: 70vh;
+                padding: 150px 24px 70px;
+            }
+
+            .bz-split {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 70px 30px;
+            }
+
+            .bz-split-body {
+                padding-left: 0;
+                border-left: none;
+                padding-top: 10px;
+                border-top: 1px solid;
+            }
+
+            .bz-section-white .bz-split-body {
+                border-top-color: rgba(23, 24, 23, 0.15);
+            }
+
+            .bz-section-red .bz-split-body {
+                border-top-color: rgba(255, 255, 255, 0.3);
+            }
+
+            .bz-fit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .crumb-bar {
+                margin-top: 63px;
+                padding: 14px 20px;
+                letter-spacing: 1.5px;
+            }
+
+            .bz-hero {
+                padding: 130px 20px 60px;
+            }
+
+            .bz-hero-inner h1 {
+                font-size: 2rem;
+            }
+
+            .bz-price-box {
+                padding: 24px 32px;
+            }
+
+            .bz-stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 40px 20px;
+            }
+
+            .bz-features,
+            .bz-process,
+            .bz-fit,
+            .bz-commit,
+            .bz-cta-final {
+                padding: 60px 22px;
+            }
+
+            .bz-features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bz-faq {
+                padding: 60px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- BREADCRUMB -->
+    <nav class="crumb-bar" aria-label="Breadcrumb">
+        <a href="ang_new.html">Home</a><span class="sep">/</span><a href="work-with-us.html">Kerja Sama dengan
+            Kami</a><span class="sep">/</span>BaZi Consultation
+    </nav>
+
+    <!-- HERO (GAMBAR PENUH) -->
+    <section class="bz-hero">
+        <div class="bz-hero-inner">
+            <p class="bz-eyebrow reveal" style="justify-content:center;display:flex;">Program Konsultasi</p>
+            <h1 class="reveal">BaZi <span class="accent">Consultation</span></h1>
+            <div class="bz-divider reveal"></div>
+            <p class="bz-sub reveal">Pembacaan personal atas Empat Pilar kelahiran Anda &mdash; memetakan
+                karakter, potensi, dan arah hidup untuk mengarahkan keputusan-keputusan penting Anda.</p>
+
+            <div class="bz-price-box reveal">
+                <p class="bz-price-label">Investasi</p>
+                <p class="bz-price">Rp 15.000.000 <span>/ sesi</span></p>
+            </div>
+
+            <div class="bz-cta-row reveal">
+                <a href="lokasi.html" class="bz-btn-fill">Jadwalkan Sesi &rarr;</a>
+                <a href="lokasi.html" class="bz-btn-outline">Tanya Dulu &rarr;</a>
+            </div>
+            <p class="bz-note reveal">Tersedia secara tatap muka maupun daring.</p>
+        </div>
+    </section>
+
+    <!-- STATS (PUTIH) -->
+    <section class="bz-stats bz-section-white reveal">
+        <div class="bz-stat">
+            <span class="bz-stat-num">4</span>
+            <p class="bz-stat-label">Pilar Kelahiran</p>
+        </div>
+        <div class="bz-stat">
+            <span class="bz-stat-num">90</span>
+            <p class="bz-stat-label">Menit Sesi Inti</p>
+        </div>
+        <div class="bz-stat">
+            <span class="bz-stat-num">1:1</span>
+            <p class="bz-stat-label">Privat, Bukan Kelas</p>
+        </div>
+        <div class="bz-stat">
+            <span class="bz-stat-num">7</span>
+            <p class="bz-stat-label">Hari Tanya-Jawab Lanjutan</p>
+        </div>
+    </section>
+
+    <!-- MASALAH (PUTIH) -->
+    <section class="bz-split bz-section-white">
+        <div class="reveal">
+            <p class="bz-eyebrow">Di Persimpangan</p>
+            <h2>Anda Merasa Siap, Tapi Waktunya Terasa Tidak Tepat</h2>
+        </div>
+        <div class="bz-split-body reveal">
+            <p>Karier Anda berjalan baik, hubungan Anda cukup stabil, namun ada satu keputusan besar yang
+                terus Anda tunda &mdash; pindah kota, membuka usaha baru, atau langkah penting lainnya.</p>
+            <p>Anda tidak sedang mencari motivasi. Anda ingin melihat pola di balik waktu Anda sendiri,
+                sebelum mengambil langkah berikutnya.</p>
+        </div>
+    </section>
+
+    <!-- WARISAN BAZI (MERAH) -->
+    <section class="bz-split bz-section-red">
+        <div class="reveal">
+            <p class="bz-eyebrow">Empat Pilar Kelahiran</p>
+            <h2>Ilmu yang Telah Dipercaya Sejak Istana Kekaisaran</h2>
+        </div>
+        <div class="bz-split-body reveal">
+            <p>BaZi, atau Empat Pilar Kelahiran, adalah salah satu metode tertua dalam tradisi Tiongkok untuk
+                membaca energi bawaan seseorang berdasarkan tahun, bulan, tanggal, dan jam kelahiran.</p>
+            <p>Konsultan kami menafsirkan pola ini dengan kecermatan yang sama seperti istana Dinasti Qing
+                menilai kemurnian sebuah giok &mdash; teliti, personal, dan tidak tergesa-gesa.</p>
+        </div>
+    </section>
+
+    <!-- YANG ANDA DAPATKAN (PUTIH) -->
+    <section class="bz-features bz-section-white">
+        <div class="bz-features-head reveal">
+            <p class="bz-eyebrow" style="justify-content:center;display:flex;">Yang Anda Dapatkan</p>
+            <h2>Satu Sesi, Empat Bagian</h2>
+        </div>
+        <div class="bz-features-grid">
+            <div class="bz-feature-card reveal">
+                <p class="bz-feature-num">01</p>
+                <h3>Analisis Empat Pilar</h3>
+                <p>Perhitungan lengkap BaZi berdasarkan data kelahiran Anda.</p>
+            </div>
+            <div class="bz-feature-card reveal">
+                <p class="bz-feature-num">02</p>
+                <h3>Sesi Konsultasi Privat</h3>
+                <p>90 menit tatap muka atau daring bersama konsultan kami.</p>
+            </div>
+            <div class="bz-feature-card reveal">
+                <p class="bz-feature-num">03</p>
+                <h3>Laporan Personal</h3>
+                <p>Ringkasan tertulis yang dapat Anda simpan dan baca ulang.</p>
+            </div>
+            <div class="bz-feature-card reveal">
+                <p class="bz-feature-num">04</p>
+                <h3>Tanya-Jawab Lanjutan</h3>
+                <p>Jendela 7 hari untuk klarifikasi setelah sesi selesai.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROSES (MERAH) -->
+    <section class="bz-process bz-section-red">
+        <div class="bz-process-head reveal">
+            <p class="bz-eyebrow" style="justify-content:center;display:flex;">Alur Konsultasi</p>
+            <h2>Tiga Langkah Menuju Kejelasan</h2>
+        </div>
+        <div class="bz-process-grid">
+            <div class="bz-process-step reveal">
+                <p class="step-num">01</p>
+                <h3>Kirim Data Kelahiran</h3>
+                <p>Tanggal, waktu, dan lokasi kelahiran Anda dikirimkan sebelum sesi berlangsung.</p>
+            </div>
+            <div class="bz-process-step reveal">
+                <p class="step-num">02</p>
+                <h3>Analisis BaZi</h3>
+                <p>Konsultan kami menyusun peta Empat Pilar dan menandai titik-titik penting dalam hidup
+                    Anda.</p>
+            </div>
+            <div class="bz-process-step reveal">
+                <p class="step-num">03</p>
+                <h3>Sesi Pembacaan</h3>
+                <p>Anda dan konsultan membahas hasil analisis beserta rekomendasi langkah ke depan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNTUK SIAPA (PUTIH) -->
+    <section class="bz-fit bz-section-white">
+        <div class="bz-fit-head reveal">
+            <p class="bz-eyebrow" style="justify-content:center;display:flex;">Kecocokan</p>
+            <h2>Untuk Siapa Program Ini</h2>
+        </div>
+        <div class="bz-fit-grid">
+            <div class="bz-fit-card reveal">
+                <h3>Cocok untuk Anda jika&hellip;</h3>
+                <ul>
+                    <li>Sedang menghadapi satu keputusan besar yang terus tertunda</li>
+                    <li>Ingin memahami pola hidup dari sudut pandang yang berbeda</li>
+                    <li>Terbuka pada refleksi mendalam, bukan sekadar jawaban cepat</li>
+                </ul>
+            </div>
+            <div class="bz-fit-card reveal">
+                <h3>Mungkin belum saatnya jika&hellip;</h3>
+                <ul>
+                    <li>Anda hanya mencari ramalan singkat tanpa niat menindaklanjuti</li>
+                    <li>Anda mencari kepastian mutlak, bukan arah dan panduan</li>
+                    <li>Anda belum siap meluangkan waktu untuk sesi penuh</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- KOMITMEN (MERAH) -->
+    <section class="bz-commit bz-section-red">
+        <div class="bz-commit-inner">
+            <p class="bz-eyebrow" style="justify-content:center;display:flex;">Komitmen Kami</p>
+            <h2 class="reveal">Kami Menemani Sampai Anda Jelas</h2>
+            <p class="reveal">Jika setelah sesi Anda masih memiliki pertanyaan, jendela tanya-jawab tujuh hari
+                tetap terbuka tanpa biaya tambahan. Kejelasan Anda adalah tujuan kami &mdash; bukan sekadar sesi
+                yang selesai tepat waktu.</p>
+        </div>
+    </section>
+
+    <!-- CTA AKHIR (PUTIH) -->
+    <section class="bz-cta-final bz-section-white">
+        <p class="bz-price-label reveal">Investasi</p>
+        <p class="bz-price reveal">Rp 15.000.000 <span>/ sesi</span></p>
+        <div class="bz-cta-row reveal" style="margin-top:30px;">
+            <a href="lokasi.html" class="bz-btn-fill">Jadwalkan Sesi &rarr;</a>
+            <a href="lokasi.html" class="bz-btn-outline">Tanya Dulu &rarr;</a>
+        </div>
+    </section>
+
+    <!-- FAQ (MERAH) -->
+    <section class="bz-faq bz-section-red">
+        <div class="bz-faq-inner">
+            <div class="bz-faq-head reveal">
+                <p class="bz-eyebrow" style="justify-content:center;display:flex;">Pertanyaan</p>
+                <h2>Yang Sering Ditanyakan</h2>
+            </div>
+
+            <details class="reveal">
+                <summary>Apa itu BaZi Consultation?</summary>
+                <p>BaZi Consultation adalah sesi pembacaan personal berdasarkan Empat Pilar kelahiran Anda
+                    (tahun, bulan, tanggal, dan jam), digunakan untuk memahami karakter, potensi, dan arah hidup.</p>
+            </details>
+            <details class="reveal">
+                <summary>Apa saja yang perlu saya siapkan?</summary>
+                <p>Anda hanya perlu mengirimkan tanggal, waktu, dan lokasi kelahiran yang akurat sebelum sesi
+                    berlangsung.</p>
+            </details>
+            <details class="reveal">
+                <summary>Apakah sesi bisa dilakukan secara daring?</summary>
+                <p>Bisa. Sesi tersedia secara tatap muka di lokasi kami maupun daring melalui panggilan video.</p>
+            </details>
+            <details class="reveal">
+                <summary>Kapan saya menerima laporan tertulis?</summary>
+                <p>Ringkasan personal dikirimkan setelah sesi selesai, sehingga Anda dapat menyimpan dan
+                    membacanya kembali kapan saja.</p>
+            </details>
+            <details class="reveal">
+                <summary>Apakah hasil pembacaan berlaku selamanya?</summary>
+                <p>Peta Empat Pilar kelahiran Anda bersifat tetap, namun interpretasinya dapat didalami kembali
+                    seiring perubahan fase hidup Anda.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- TAUTAN KEMBALI (PUTIH) -->
+    <div class="bz-back bz-section-white">
+        <a href="work-with-us.html">&larr; Kembali ke Kerja Sama dengan Kami</a>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+        // animasi muncul saat scroll (tanpa JS, konten tetap tampil)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('visible'));
+        }
+    </script>
+</body>
+
+</html>

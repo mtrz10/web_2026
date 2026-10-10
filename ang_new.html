@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anggara Treasures - Kristal Imperial Fengshui</title>
+    <!-- Google Fonts untuk Tipografi Elegan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            /* Red Cartier */
+            --color-secondary: #ffffff;
+            /* White */
+            --color-font: #171817;
+            /* Scholar Ink */
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           3. HERO SECTION (FULLSCREEN DISPLAY)
+           ========================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(156, 5, 18, 0.4), rgba(156, 5, 18, 0.8)),
+                url('img/banner.jpeg') center/cover no-repeat;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           4. FEATURED COLLECTION SECTION
+           ========================================== */
+        .featured {
+            padding: 120px 50px;
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .view-all-wrapper {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .btn-view-all {
+            display: inline-block;
+            padding: 15px 35px;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-all:hover {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .card {
+            background-color: var(--color-secondary);
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.4s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-img-wrapper {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .card-img-wrapper img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-font);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--color-font);
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-primary);
+            padding-bottom: 5px;
+            align-self: center;
+        }
+
+        /* ==========================================
+           5. BRAND STORY SECTION (LIGHT CONTRAST)
+           ========================================== */
+        .story {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 120px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .story-content p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 14px 30px;
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        /* ==========================================
+           6. STORE LOCATOR & CONTACT
+           ========================================== */
+        .store-locator {
+            padding: 100px 50px;
+            text-align: center;
+            background-color: #ffffff;
+            color: var(--color-font);
+        }
+
+        .store-locator h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .store-locator p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+            font-family: var(--font-body);
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 15px 30px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           8. RESPONSIVE DESIGN (MOBILE ADAPTATION)
+           ========================================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured,
+            .story,
+            .store-locator {
+                padding: 70px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Anggara Treasures</p>
+            <h1 class="hero-title">Kristal Imperial Fengshui untuk Keberuntungan & Kemakmuran</h1>
+            <a href="#koleksi" class="btn-primary">Lihat Koleksi</a>
+        </div>
+    </section>
+
+    <!-- 3. FEATURED COLLECTION SECTION -->
+    <section class="featured" id="koleksi">
+        <div class="section-header">
+            <h2 class="section-title">Koleksi Kristal Pilihan</h2>
+        </div>
+        <div class="grid-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png"
+                        alt="Kristal Kuarsa Fengshui">
+                </div>
+                <h3 class="card-title">Kristal Kuarsa Imperial</h3>
+                <p class="card-desc">Kristal kuarsa pilihan yang dipercaya membawa energi positif dan keseimbangan bagi
+                    ruang Anda.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png"
+                        alt="Giok Imperial Fengshui">
+                </div>
+                <h3 class="card-title">Giok Imperial</h3>
+                <p class="card-desc">Simbol keberuntungan dan kemakmuran, diukir dengan detail khas fengshui klasik.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="img/jade1.png"
+                        alt="Kristal Citrine Fengshui">
+                </div>
+                <h3 class="card-title">Kristal Citrine</h3>
+                <p class="card-desc">Dikenal sebagai batu rezeki, cocok untuk mendatangkan kemakmuran dan energi
+                    positif.</p>
+                <a href="#" class="card-link">Lihat Detail</a>
+            </div>
+        </div>
+        <div class="view-all-wrapper">
+            <a href="koleksi.html" class="btn-view-all">Lihat Semua Koleksi</a>
+        </div>
+    </section>
+
+    <!-- 4. STORYTELLING SECTION -->
+    <section class="story">
+        <div class="story-container">
+            <div class="story-img">
+                <img src="img/artisan.jpeg"
+                    alt="Kerajinan Kristal Fengshui">
+            </div>
+            <div class="story-content">
+                <h2>Warisan Kristal Imperial Fengshui</h2>
+                <p>Anggara Treasures menghadirkan kristal imperial fengshui pilihan yang dikurasi dengan teliti,
+                    dipercaya membawa keberuntungan, kemakmuran, dan keseimbangan energi bagi rumah maupun usaha Anda.
+                </p>
+                <a href="#" class="btn-outline">Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. STORE LOCATOR SECTION -->
+    <section class="store-locator">
+        <h2>Temukan Toko Kami</h2>
+        <p>Cari lokasi terdekat Anggara Treasures untuk berkonsultasi langsung tentang kristal imperial fengshui yang
+            tepat untuk Anda.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Masukkan kota atau kode pos...">
+            <button type="button">Cari</button>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+</body>
+
+</html>

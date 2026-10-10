@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaisar Qianlong - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           2. BREADCRUMB BAR
+           ========================================== */
+        .crumb-bar {
+            margin-top: 73px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 16px 50px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .crumb-bar a {
+            opacity: 0.65;
+            transition: opacity 0.3s;
+        }
+
+        .crumb-bar a:hover {
+            opacity: 1;
+        }
+
+        .crumb-bar .sep {
+            margin: 0 10px;
+            color: #e0333f;
+        }
+
+        .title-lines {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-primary);
+        }
+
+        .title-lines::before,
+        .title-lines::after {
+            content: "";
+            flex: 0 1 70px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.6;
+        }
+
+        /* ==========================================
+           3. HERO (KAISAR QIANLONG)
+           ========================================== */
+        .qg-hero {
+            height: 78vh;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(13, 0, 2, 0.35), rgba(13, 0, 2, 0.8)),
+                url('img/tengah.jpeg') center/cover no-repeat fixed;
+            color: var(--color-secondary);
+        }
+
+        .qg-hero .title-lines {
+            color: #e0333f;
+            justify-content: center;
+        }
+
+        .qg-hero h1 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 4.2rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin: 24px 0 18px;
+        }
+
+        .qg-hero .qg-years {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            opacity: 0.85;
+        }
+
+        /* ==========================================
+           4. PERNYATAAN PEMBUKA
+           ========================================== */
+        .qg-statement {
+            padding: 130px 30px 90px;
+            max-width: 920px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .qg-statement p {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           5. STRIP STATISTIK
+           ========================================== */
+        .qg-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 30px 120px;
+            background-color: var(--color-secondary);
+        }
+
+        .qg-stat {
+            text-align: center;
+            padding: 0 20px;
+            border-left: 1px solid rgba(23, 24, 23, 0.12);
+        }
+
+        .qg-stat:first-child {
+            border-left: none;
+        }
+
+        .qg-stat-num {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .qg-stat-label {
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            opacity: 0.75;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           6. BLOK MILESTONE &mdash; VARIAN 1: GELAP, DUA KOLOM
+           ========================================== */
+        .milestone {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            background-color: #0d0002;
+            color: var(--color-secondary);
+            padding: 110px 50px;
+        }
+
+        .milestone.reverse .milestone-media {
+            order: 2;
+        }
+
+        .milestone-media img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .milestone-year {
+            font-family: var(--font-heading);
+            font-size: 3.4rem;
+            color: #e0333f;
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+
+        .milestone-text h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .milestone-text p {
+            font-size: 0.98rem;
+            opacity: 0.82;
+            max-width: 480px;
+        }
+
+        /* ==========================================
+           7. BLOK MILESTONE &mdash; VARIAN 2: POTRET TENGAH (FADE)
+           ========================================== */
+        .milestone-full {
+            padding: 120px 30px 60px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .milestone-full .milestone-year,
+        .milestone-full h2 {
+            color: var(--color-font);
+        }
+
+        .milestone-full .milestone-year {
+            color: var(--color-primary);
+        }
+
+        .milestone-full h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .milestone-full p.body {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 0.98rem;
+            opacity: 0.8;
+        }
+
+        .milestone-full .medallion {
+            width: 300px;
+            height: 300px;
+            margin: 60px auto 0;
+            border-radius: 50%;
+            padding: 14px;
+            background: linear-gradient(145deg, #e8c27a, var(--color-primary) 55%, #7a0309);
+            box-shadow: 0 25px 55px rgba(13, 0, 2, 0.22);
+        }
+
+        .milestone-full img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--color-secondary);
+        }
+
+        /* ==========================================
+           8. BLOK KUTIPAN (PUISI KAISAR QIANLONG)
+           ========================================== */
+        .qg-quote {
+            padding: 130px 40px;
+            text-align: center;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .qg-quote blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.9rem;
+            line-height: 1.5;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .qg-quote blockquote::before {
+            content: "\201C";
+        }
+
+        .qg-quote blockquote::after {
+            content: "\201D";
+        }
+
+        .qg-quote cite {
+            display: block;
+            margin-top: 28px;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.8;
+            font-style: normal;
+        }
+
+        /* ==========================================
+           9. BLOK MILESTONE &mdash; VARIAN 3: LATAR FOTO PENUH
+           ========================================== */
+        .milestone-bg {
+            position: relative;
+            min-height: 64vh;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .milestone-bg-text {
+            position: relative;
+            z-index: 2;
+            max-width: 540px;
+            padding: 90px 60px;
+            background: linear-gradient(90deg, var(--color-secondary) 60%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .milestone-bg-text .milestone-year {
+            color: var(--color-primary);
+        }
+
+        .milestone-bg-text h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            margin-bottom: 18px;
+            color: var(--color-font);
+        }
+
+        .milestone-bg-text p {
+            font-size: 0.98rem;
+            opacity: 0.82;
+            color: var(--color-font);
+        }
+
+        /* ==========================================
+           10. CTA PENUTUP
+           ========================================== */
+        .qg-cta {
+            padding: 140px 50px;
+            text-align: center;
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+        }
+
+        .qg-cta h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2.4rem;
+            margin: 22px 0 18px;
+        }
+
+        .qg-cta p {
+            max-width: 550px;
+            margin: 0 auto 35px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .qg-cta-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-dark,
+        .btn-outline-light {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .btn-dark:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-light {
+            border: 1px solid var(--color-font);
+            color: var(--color-font);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+        }
+
+        /* ==========================================
+           11. ANIMASI MUNCUL SAAT SCROLL
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ==========================================
+           12. RESPONSIVE
+           ========================================== */
+        @media (max-width: 900px) {
+            .milestone {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                padding: 80px 25px;
+            }
+
+            .milestone.reverse .milestone-media {
+                order: 0;
+            }
+
+            .milestone-bg {
+                background-attachment: scroll;
+            }
+
+            .milestone-bg-text {
+                max-width: 100%;
+                background: var(--color-secondary);
+            }
+
+            .qg-stats {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                padding: 0 30px 90px;
+            }
+
+            .qg-stat {
+                border-left: none;
+                border-top: 1px solid rgba(23, 24, 23, 0.12);
+                padding-top: 28px;
+            }
+
+            .qg-stat:first-child {
+                border-top: none;
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .crumb-bar {
+                margin-top: 63px;
+                padding: 14px 20px;
+                letter-spacing: 1.5px;
+            }
+
+            .qg-hero {
+                height: 56vh;
+                background-attachment: scroll;
+            }
+
+            .qg-hero h1 {
+                font-size: 2.6rem;
+                letter-spacing: 5px;
+            }
+
+            .qg-statement {
+                padding: 80px 25px 50px;
+            }
+
+            .qg-statement p {
+                font-size: 1.5rem;
+            }
+
+            .milestone-full {
+                padding: 80px 20px 40px;
+            }
+
+            .milestone-full .medallion {
+                width: 220px;
+                height: 220px;
+                margin-top: 40px;
+            }
+
+            .qg-quote {
+                padding: 90px 25px;
+            }
+
+            .qg-quote blockquote {
+                font-size: 1.4rem;
+            }
+
+            .qg-cta {
+                padding: 90px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- BREADCRUMB -->
+    <nav class="crumb-bar" aria-label="Breadcrumb">
+        <a href="ang_new.html">Home</a><span class="sep">/</span><a href="about.html">Anggara Treasures</a><span
+            class="sep">/</span>Kaisar Qianlong
+    </nav>
+
+    <!-- HERO -->
+    <section class="qg-hero">
+        <div class="reveal">
+            <p class="title-lines">Warisan Kekaisaran</p>
+            <h1>Kaisar Qianlong</h1>
+            <p class="qg-years">1735 &ndash; 1796 M</p>
+        </div>
+    </section>
+
+    <!-- PERNYATAAN PEMBUKA -->
+    <section class="qg-statement">
+        <p class="reveal">Qianlong memerintah dengan tangan yang sama ia gunakan untuk mengukir puisi di atas giok
+            &mdash; menyatukan kekuasaan dan keindahan dalam satu warisan yang bertahan jauh melampaui batas
+            zamannya.</p>
+    </section>
+
+    <!-- STRIP STATISTIK -->
+    <section class="qg-stats reveal">
+        <div class="qg-stat">
+            <span class="qg-stat-num">60+</span>
+            <p class="qg-stat-label">Tahun kekuasaan, menjadikannya salah satu kaisar paling lama memerintah dalam
+                sejarah Tiongkok</p>
+        </div>
+        <div class="qg-stat">
+            <span class="qg-stat-num">40.000+</span>
+            <p class="qg-stat-label">Sajak ditulisnya sepanjang hidup, sebagian diukir langsung di atas giok
+                koleksinya</p>
+        </div>
+        <div class="qg-stat">
+            <span class="qg-stat-num">Ribuan</span>
+            <p class="qg-stat-label">Karya giok dikumpulkan istana, membentuk koleksi kekaisaran termegah pada
+                masanya</p>
+        </div>
+    </section>
+
+    <!-- MILESTONE 1: 1711 -->
+    <section class="milestone">
+        <div class="milestone-media reveal">
+            <img src="img/kiri.jpeg" alt="Ruang istana Dinasti Qing, tempat Pangeran Qianlong dibesarkan">
+        </div>
+        <div class="milestone-text reveal">
+            <p class="milestone-year">1711</p>
+            <h2>Kelahiran Sang Pangeran</h2>
+            <p>Lahir dengan nama Hongli, ia tumbuh sebagai cucu kesayangan Kaisar Kangxi dan dibesarkan di tengah
+                kemegahan istana. Sejak usia dini, ia diperkenalkan pada seni, sastra, dan kaligrafi &mdash;
+                fondasi yang kelak menumbuhkan kekagumannya pada giok, batu yang akan menjadi obsesi sepanjang
+                hidupnya.</p>
+        </div>
+    </section>
+
+    <!-- MILESTONE 2: 1735 -->
+    <section class="milestone-full">
+        <p class="milestone-year reveal">1735</p>
+        <h2 class="reveal">Naik Tahta, Awal Enam Dekade Kekuasaan</h2>
+        <p class="body reveal">Pada usia 24 tahun, Hongli dinobatkan sebagai Kaisar Qianlong, kaisar keenam Dinasti
+            Qing. Di bawah pemerintahannya, Tiongkok memasuki salah satu periode paling stabil dan makmur dalam
+            sejarahnya &mdash; fondasi yang memungkinkan seni dan kebudayaan, terutama seni giok, tumbuh tanpa
+            batas.</p>
+        <div class="medallion reveal">
+            <img src="img/about1.png" alt="Liontin giok berukir, salah satu karya istana era Kaisar Qianlong">
+        </div>
+    </section>
+
+    <!-- KUTIPAN -->
+    <section class="qg-quote reveal">
+        <blockquote>Giok tidak berbicara, namun ia menyimpan kebijaksanaan seribu tahun. Aku hanya menuliskan apa
+            yang telah lama ia ketahui.</blockquote>
+        <cite>&mdash; disarikan dari sajak-sajak Kaisar Qianlong</cite>
+    </section>
+
+    <!-- MILESTONE 3: 1736-1795 -->
+    <section class="milestone-bg reveal" style="background-image: url('img/bnr2.jpeg');">
+        <div class="milestone-bg-text">
+            <p class="milestone-year">1736 &ndash; 1795</p>
+            <h2>Puncak Kejayaan Seni Giok Istana</h2>
+            <p>Qianlong menghidupkan kembali bengkel-bengkel istana dan mendatangkan jadeite hijau dari Myanmar
+                melalui jalur perdagangan kuno. Di tangan para maestro pengukir, material pilihan ini diubah
+                menjadi karya yang menyatukan presisi teknis dengan puisi pribadinya sendiri &mdash; menetapkan
+                standar keindahan imperial yang hingga kini masih menjadi rujukan.</p>
+        </div>
+    </section>
+
+    <!-- MILESTONE 4: 1799 -->
+    <section class="milestone reverse">
+        <div class="milestone-media reveal">
+            <img src="img/kanan.jpeg" alt="Sosok berbusana kaisar Qing memandang kota modern, warisan yang berlanjut">
+        </div>
+        <div class="milestone-text reveal">
+            <p class="milestone-year">1799</p>
+            <h2>Warisan yang Tak Pernah Pudar</h2>
+            <p>Meski turun tahta pada 1796 sebagai penghormatan atas masa kekuasaan kakeknya, Qianlong tetap
+                memegang kendali penuh hingga wafat pada 1799. Semangat dan standar keindahan yang ia tetapkan
+                terus hidup &mdash; dihidupkan kembali oleh Anggara Treasures dalam setiap kristal imperial
+                fengshui yang dikurasi dengan keaslian dan kualitas setara istana Qing.</p>
+        </div>
+    </section>
+
+    <!-- CTA PENUTUP -->
+    <section class="qg-cta">
+        <p class="title-lines reveal">Lanjutkan Kisah</p>
+        <h2 class="reveal">Kembali ke Warisan Anggara Treasures</h2>
+        <p class="reveal">Jelajahi linimasa lengkap, dari istana Dinasti Qing hingga koleksi kristal imperial
+            fengshui masa kini.</p>
+        <div class="qg-cta-actions reveal">
+            <a href="about.html" class="btn-outline-light">Kembali ke Sejarah</a>
+            <a href="koleksi.html" class="btn-dark">Lihat Koleksi</a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+        // animasi muncul saat scroll (tanpa JS, konten tetap tampil)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('visible'));
+        }
+    </script>
+</body>
+
+</html>

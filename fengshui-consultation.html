@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feng Shui Consultation - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+            --font-display: 'Oswald', 'Lora', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           2. BREADCRUMB BAR
+           ========================================== */
+        .crumb-bar {
+            margin-top: 73px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 16px 50px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .crumb-bar a {
+            opacity: 0.65;
+            transition: opacity 0.3s;
+        }
+
+        .crumb-bar a:hover {
+            opacity: 1;
+        }
+
+        .crumb-bar .sep {
+            margin: 0 10px;
+            color: #e0333f;
+        }
+
+        /* ==========================================
+           3. ELEMEN UMUM: EYEBROW, HEADLINE, GARIS
+           ========================================== */
+        .fsr-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: 18px;
+        }
+
+        .fsr-red .fsr-eyebrow {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .fsr-headline {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.08;
+            text-align: center;
+        }
+
+        .fsr-headline .accent {
+            color: var(--color-primary);
+        }
+
+        .fsr-red .fsr-headline .accent {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .fsr-underline {
+            width: 110px;
+            height: 1px;
+            background: var(--color-font);
+            opacity: 0.25;
+            margin: 26px auto;
+        }
+
+        .fsr-red .fsr-underline {
+            background: var(--color-secondary);
+            opacity: 0.35;
+        }
+
+        .fsr-btn-dark,
+        .fsr-btn-light,
+        .fsr-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 17px 36px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .fsr-btn-dark {
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+        }
+
+        .fsr-btn-light {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .fsr-btn-outline {
+            border: 1px solid var(--color-font);
+            color: var(--color-font);
+        }
+
+        .fsr-red .fsr-btn-outline {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+        }
+
+        .fsr-btn-dark:hover,
+        .fsr-btn-light:hover,
+        .fsr-btn-outline:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        .fsr-cta-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================
+           4. HERO
+           ========================================== */
+        .fsr-hero {
+            padding: 140px 30px 80px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .fsr-hero .fsr-headline {
+            font-size: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .fsr-hero .lead {
+            max-width: 620px;
+            margin: 0 auto 36px;
+            font-size: 1.05rem;
+            opacity: 0.85;
+        }
+
+        .fsr-hero .fsr-price-note {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            margin-bottom: 34px;
+        }
+
+        .fsr-hero .fsr-price-note span {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            color: var(--color-font);
+            opacity: 0.55;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 8px;
+        }
+
+        .fsr-hero-caption {
+            margin-top: 26px;
+            font-size: 0.88rem;
+            opacity: 0.6;
+        }
+
+        /* ==========================================
+           5. INTRO SECTION KECIL (SEBELUM ITEM)
+           ========================================== */
+        .fsr-section-intro {
+            padding: 90px 30px 20px;
+            background-color: var(--color-secondary);
+        }
+
+        /* ==========================================
+           6. ITEM BERNOMOR (FOTO + TEKS BERGANTIAN)
+           ========================================== */
+        .fsr-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 100px 50px;
+        }
+
+        .fsr-item.reverse .fsr-item-img {
+            order: 2;
+        }
+
+        .fsr-item-img {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .fsr-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .fsr-item:hover .fsr-item-img img {
+            transform: scale(1.05);
+        }
+
+        .fsr-item-num {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.05rem;
+            opacity: 0.5;
+            margin-bottom: 14px;
+        }
+
+        .fsr-item-text h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.9rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .fsr-item-text p.desc {
+            font-size: 0.98rem;
+            opacity: 0.85;
+            max-width: 480px;
+            margin-bottom: 30px;
+        }
+
+        .fsr-item-list div {
+            display: flex;
+            gap: 14px;
+            padding: 15px 0;
+            border-top: 1px solid rgba(23, 24, 23, 0.14);
+            font-size: 0.93rem;
+            opacity: 0.85;
+        }
+
+        .fsr-red .fsr-item-list div {
+            border-top-color: rgba(255, 255, 255, 0.28);
+        }
+
+        .fsr-item-list span.dash {
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        /* --- ITEM PENUTUP (TANPA FOTO) --- */
+        .fsr-item-close {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 30px 110px;
+        }
+
+        .fsr-item-close h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+        }
+
+        .fsr-item-close p.desc {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+
+        .fsr-item-close p.closing-line {
+            font-size: 0.95rem;
+            opacity: 0.65;
+            margin-bottom: 34px;
+        }
+
+        /* ==========================================
+           7. ALASAN (3 KOLOM GARIS ATAS)
+           ========================================== */
+        .fsr-reasons {
+            background-color: var(--color-secondary);
+            padding: 100px 50px 110px;
+            text-align: center;
+        }
+
+        .fsr-reasons .lead {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1rem;
+            opacity: 0.82;
+        }
+
+        .fsr-reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1080px;
+            margin: 60px auto 0;
+            text-align: left;
+        }
+
+        .fsr-reason {
+            border-top: 1px solid rgba(23, 24, 23, 0.18);
+            padding-top: 18px;
+        }
+
+        .fsr-reason .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.55;
+            margin-bottom: 12px;
+        }
+
+        .fsr-reason p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* ==========================================
+           8. KOTAK HARGA (DIBINGKAI, DI ATAS MERAH)
+           ========================================== */
+        .fsr-pricing-wrap {
+            background-color: var(--color-primary);
+            padding: 110px 30px;
+        }
+
+        .fsr-pricing-box {
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .fsr-pricing-box .fsr-eyebrow,
+        .fsr-pricing-box .fsr-headline {
+            color: inherit;
+        }
+
+        .fsr-pricing-box .fsr-eyebrow {
+            color: var(--color-primary);
+        }
+
+        .fsr-pricing-box .lead {
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 1rem;
+            opacity: 0.82;
+        }
+
+        .fsr-pricing-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 720px;
+            margin: 50px auto 44px;
+            text-align: left;
+        }
+
+        .fsr-pricing-cols .fsr-reason {
+            border-top-color: rgba(23, 24, 23, 0.18);
+        }
+
+        /* ==========================================
+           9. TIGA LANGKAH (KARTU BERBINGKAI, MERAH)
+           ========================================== */
+        .fsr-steps {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 110px 50px;
+        }
+
+        .fsr-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 60px auto 44px;
+        }
+
+        .fsr-step-card {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px 34px;
+        }
+
+        .fsr-step-card .num {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.6;
+            margin-bottom: 18px;
+        }
+
+        .fsr-step-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .fsr-step-card p {
+            font-size: 0.92rem;
+            opacity: 0.85;
+        }
+
+        /* ==========================================
+           10. FAQ
+           ========================================== */
+        .fsr-faq {
+            background-color: var(--color-secondary);
+            padding: 110px 30px;
+        }
+
+        .fsr-faq-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .fsr-faq details {
+            border-bottom: 1px solid rgba(23, 24, 23, 0.15);
+            padding: 22px 0;
+        }
+
+        .fsr-faq summary {
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .fsr-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .fsr-faq summary::after {
+            content: "+";
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .fsr-faq details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .fsr-faq details p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 16px;
+            max-width: 620px;
+        }
+
+        /* ==========================================
+           11. PENUTUP & TAUTAN KEMBALI
+           ========================================== */
+        .fsr-closing {
+            background-color: var(--color-secondary);
+            text-align: center;
+            padding: 20px 30px 90px;
+        }
+
+        .fsr-closing p.lead {
+            max-width: 560px;
+            margin: 0 auto 34px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .fsr-back {
+            border-top: 1px solid rgba(23, 24, 23, 0.1);
+            padding: 40px 50px 60px;
+            text-align: center;
+        }
+
+        .fsr-back a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.75;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-primary);
+            padding-bottom: 6px;
+            transition: opacity 0.3s;
+        }
+
+        .fsr-back a:hover {
+            opacity: 1;
+        }
+
+        /* ==========================================
+           12. ANIMASI MUNCUL SAAT SCROLL
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ==========================================
+           13. RESPONSIVE
+           ========================================== */
+        @media (max-width: 1024px) {
+            .fsr-hero .fsr-headline {
+                font-size: 2.8rem;
+            }
+
+            .fsr-reasons-grid,
+            .fsr-pricing-cols,
+            .fsr-steps-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .fsr-item {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 70px 30px;
+            }
+
+            .fsr-item.reverse .fsr-item-img {
+                order: 0;
+            }
+
+            .fsr-pricing-box {
+                padding: 50px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .crumb-bar {
+                margin-top: 63px;
+                padding: 14px 20px;
+                letter-spacing: 1.5px;
+            }
+
+            .fsr-hero {
+                padding: 120px 20px 60px;
+            }
+
+            .fsr-hero .fsr-headline {
+                font-size: 2.1rem;
+            }
+
+            .fsr-section-intro,
+            .fsr-reasons,
+            .fsr-pricing-wrap,
+            .fsr-steps,
+            .fsr-faq {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- BREADCRUMB -->
+    <nav class="crumb-bar" aria-label="Breadcrumb">
+        <a href="ang_new.html">Home</a><span class="sep">/</span><a href="work-with-us.html">Kerja Sama dengan
+            Kami</a><span class="sep">/</span>Feng Shui Consultation
+    </nav>
+
+    <!-- HERO -->
+    <section class="fsr-hero">
+        <p class="fsr-eyebrow reveal">Untuk Rumah, Kantor & Ruang Usaha Anda</p>
+        <h1 class="fsr-headline reveal">Feng Shui <span class="accent">Rumah</span></h1>
+        <div class="fsr-underline reveal"></div>
+        <p class="lead reveal">Serahkan pembacaan arah dan tata letak ruang kepada konsultan yang memahami
+            prinsip klasiknya, dan simpan keputusan akhir di tangan Anda. Setiap rekomendasi dibangun dari
+            kondisi lokasi Anda sendiri, bukan template umum.</p>
+        <p class="fsr-price-note reveal">Mulai dari Rp 25.000.000 <span>per cakupan kerja sama</span></p>
+        <div class="fsr-cta-row reveal">
+            <a href="lokasi.html" class="fsr-btn-dark">Ajukan Jadwal Survei &rarr;</a>
+            <a href="lokasi.html" class="fsr-btn-outline">Tanya Dulu &rarr;</a>
+        </div>
+        <p class="fsr-hero-caption reveal">Kami hanya menerima sejumlah kecil lokasi setiap bulan, dan hanya
+            setelah sesi awal.</p>
+    </section>
+
+    <!-- INTRO SEBELUM ITEM -->
+    <section class="fsr-section-intro">
+        <p class="fsr-eyebrow reveal">Cakupan Kerja Sama</p>
+        <h2 class="fsr-headline reveal">Empat Bagian yang Kami Tangani</h2>
+        <div class="fsr-underline reveal"></div>
+    </section>
+
+    <!-- ITEM 01 -->
+    <div class="fsr-item reveal">
+        <div class="fsr-item-img">
+            <img src="img/kiri.jpeg" alt="Ruang istana dengan naga giok dan bola kristal di atas meja kayu">
+        </div>
+        <div class="fsr-item-text">
+            <p class="fsr-item-num">01</p>
+            <h2>Survei & Pengukuran Lokasi</h2>
+            <p class="desc">Kami datang langsung ke lokasi Anda untuk mengukur arah dan mengamati kondisi ruang
+                sebenarnya, bukan hanya membaca denah di atas kertas.</p>
+            <div class="fsr-item-list">
+                <div><span class="dash">&ndash;</span><span>Pengukuran arah mata angin dengan kompas Feng
+                        Shui</span></div>
+                <div><span class="dash">&ndash;</span><span>Dokumentasi tata letak ruang dan bukaan utama</span>
+                </div>
+                <div><span class="dash">&ndash;</span><span>Dilakukan langsung di rumah, kantor, atau toko
+                        Anda</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ITEM 02 (MERAH, FOTO DI KIRI) -->
+    <div class="fsr-red" style="background-color:var(--color-primary); color:var(--color-secondary);">
+        <div class="fsr-item reverse reveal">
+            <div class="fsr-item-img">
+                <img src="img/kanan.jpeg" alt="Sosok berbusana kaisar Qing memandang kota modern dari atap gedung">
+            </div>
+            <div class="fsr-item-text">
+                <p class="fsr-item-num">02</p>
+                <h2>Analisis Arah & Elemen</h2>
+                <p class="desc">Data dari lokasi dicocokkan dengan Bagua dan elemen ruang, untuk membaca
+                    bagaimana energi mengalir dan di mana ia tersumbat.</p>
+                <div class="fsr-item-list">
+                    <div><span class="dash">&ndash;</span><span>Pembacaan Bagua berdasarkan arah bangunan</span>
+                    </div>
+                    <div><span class="dash">&ndash;</span><span>Identifikasi titik lemah dan titik kuat dalam
+                            ruang</span></div>
+                    <div><span class="dash">&ndash;</span><span>Disesuaikan dengan tahun kelahiran penghuni
+                            utama</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ITEM 03 -->
+    <div class="fsr-item reveal">
+        <div class="fsr-item-img">
+            <img src="img/tengah.jpeg" alt="Arsitektur istana kekaisaran Tiongkok dengan atap megah">
+        </div>
+        <div class="fsr-item-text">
+            <p class="fsr-item-num">03</p>
+            <h2>Rekomendasi Penataan</h2>
+            <p class="desc">Rekomendasi kami diprioritaskan pada perubahan yang realistis dan dapat dijalankan,
+                bukan dekorasi ulang menyeluruh.</p>
+            <div class="fsr-item-list">
+                <div><span class="dash">&ndash;</span><span>Posisi perabot, pintu, dan area kerja utama</span>
+                </div>
+                <div><span class="dash">&ndash;</span><span>Penyesuaian tanpa perlu renovasi struktural</span>
+                </div>
+                <div><span class="dash">&ndash;</span><span>Berlaku untuk lokasi milik sendiri maupun
+                        sewaan</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ITEM 04 (PENUTUP, MERAH, TANPA FOTO) -->
+    <section class="fsr-red" style="background-color:var(--color-primary); color:var(--color-secondary);">
+        <div class="fsr-item-close reveal">
+            <p class="fsr-item-num">04</p>
+            <h2>Laporan & Tanya-Jawab Lanjutan</h2>
+            <p class="desc">Semua rekomendasi dirangkum dalam laporan tertulis yang dapat Anda simpan, ditambah
+                jendela 30 hari untuk bertanya langsung kepada konsultan Anda.</p>
+            <p class="closing-line">Pilih satu bagian, atau serahkan semuanya kepada kami. Cakupan kerja sama
+                ditentukan bersama Anda, bukan dijual sebagai paket.</p>
+            <div class="fsr-cta-row">
+                <a href="lokasi.html" class="fsr-btn-light">Ajukan Jadwal Survei &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALASAN -->
+    <section class="fsr-reasons">
+        <p class="fsr-eyebrow reveal">Kenapa Survei Langsung di Lokasi</p>
+        <h2 class="fsr-headline reveal">Satu Kunjungan, Bukan Tebakan dari Jauh</h2>
+        <div class="fsr-underline reveal"></div>
+        <p class="lead reveal">Pembacaan Feng Shui dari foto atau denah saja mudah meleset, karena arah dan
+            elemen ruang hanya bisa diukur akurat secara langsung. Di sinilah kami turun tangan sendiri, dari
+            survei hingga laporan akhir.</p>
+        <div class="fsr-reasons-grid">
+            <div class="fsr-reason reveal">
+                <p class="label">Diukur Langsung</p>
+                <p>Arah dan tata letak diukur dengan kompas Feng Shui di lokasi, bukan diperkirakan dari foto.
+                </p>
+            </div>
+            <div class="fsr-reason reveal">
+                <p class="label">Satu Konsultan</p>
+                <p>Konsultan yang sama menangani survei, analisis, hingga sesi pemaparan hasil.</p>
+            </div>
+            <div class="fsr-reason reveal">
+                <p class="label">Rekomendasi Realistis</p>
+                <p>Saran penataan disesuaikan dengan kondisi nyata lokasi Anda, bukan teori umum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KOTAK HARGA -->
+    <section class="fsr-pricing-wrap">
+        <div class="fsr-pricing-box reveal">
+            <p class="fsr-eyebrow">Cara Kami Menentukan Harga</p>
+            <h2 class="fsr-headline" style="color:var(--color-font);">Disesuaikan dengan Lokasi Anda</h2>
+            <div class="fsr-underline"></div>
+            <p class="lead">Setiap lokasi berbeda luas, kompleksitas, dan kebutuhannya, sehingga kami tidak
+                menjual paket baku. Biaya ditentukan setelah kami memahami lokasi Anda melalui sesi awal.</p>
+            <div class="fsr-pricing-cols">
+                <div class="fsr-reason">
+                    <p class="label">Sebagai Gambaran</p>
+                    <p>Mulai dari Rp 25.000.000, tergantung luas dan cakupan lokasi.</p>
+                </div>
+                <div class="fsr-reason">
+                    <p class="label">Durasi Kerja Sama</p>
+                    <p>Satu kali kunjungan, atau pendampingan lanjutan sesuai kebutuhan.</p>
+                </div>
+                <div class="fsr-reason">
+                    <p class="label">Ditentukan Saat Sesi Awal</p>
+                    <p>Kami bahas kebutuhan dan cakupan bersama, sebelum biaya disepakati.</p>
+                </div>
+            </div>
+            <a href="lokasi.html" class="fsr-btn-dark">Ajukan Jadwal Survei &rarr;</a>
+        </div>
+    </section>
+
+    <!-- TIGA LANGKAH -->
+    <section class="fsr-steps">
+        <p class="fsr-eyebrow reveal" style="color:rgba(255,255,255,0.8);">Bagaimana Kami Memulai</p>
+        <h2 class="fsr-headline reveal">Tiga Langkah, Tanpa Basa-Basi</h2>
+        <div class="fsr-underline reveal" style="background:var(--color-secondary); opacity:0.35;"></div>
+        <div class="fsr-steps-grid">
+            <div class="fsr-step-card reveal">
+                <p class="num">01</p>
+                <h3>Anda Mengajukan</h3>
+                <p>Kirimkan alamat lokasi dan sedikit informasi tentang kebutuhan Anda melalui sesi awal.</p>
+            </div>
+            <div class="fsr-step-card reveal">
+                <p class="num">02</p>
+                <h3>Kami Berbincang</h3>
+                <p>Kami bahas kebutuhan, kondisi lokasi, dan cakupan kerja sama bersama Anda secara jujur.</p>
+            </div>
+            <div class="fsr-step-card reveal">
+                <p class="num">03</p>
+                <h3>Anda Menerima Jadwal</h3>
+                <p>Jadwal survei dan rincian biaya disampaikan langsung, tanpa paket baku yang tidak sesuai.</p>
+            </div>
+        </div>
+        <div class="fsr-cta-row">
+            <a href="lokasi.html" class="fsr-btn-light">Ajukan Jadwal Survei &rarr;</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="fsr-faq">
+        <div class="fsr-faq-inner">
+            <p class="fsr-eyebrow reveal">Pertanyaan</p>
+            <h2 class="fsr-headline reveal">Yang Sering Ditanyakan</h2>
+            <div class="fsr-underline reveal"></div>
+
+            <details class="reveal" style="margin-top:40px;">
+                <summary>Apa itu Feng Shui Consultation?</summary>
+                <p>Feng Shui Consultation adalah sesi survei dan analisis arah serta tata letak ruang tempat
+                    tinggal atau usaha Anda, untuk menyelaraskan aliran energi di dalamnya.</p>
+            </details>
+            <details class="reveal">
+                <summary>Apa saja yang perlu saya siapkan?</summary>
+                <p>Anda hanya perlu mengirimkan alamat lokasi dan, bila ada, denah kasar berupa foto atau sketsa
+                    sebelum sesi awal dijadwalkan.</p>
+            </details>
+            <details class="reveal">
+                <summary>Berapa lama waktu survei di lokasi?</summary>
+                <p>Survei umumnya berlangsung 60&ndash;90 menit, tergantung luas dan kompleksitas lokasi.</p>
+            </details>
+            <details class="reveal">
+                <summary>Apakah hasilnya mengharuskan renovasi besar?</summary>
+                <p>Tidak. Rekomendasi kami diprioritaskan pada penataan ulang yang realistis &mdash; perubahan
+                    posisi perabot, arah pintu, atau elemen ruang &mdash; sebelum mempertimbangkan renovasi.</p>
+            </details>
+            <details class="reveal">
+                <summary>Apakah berlaku untuk rumah atau ruko sewaan?</summary>
+                <p>Berlaku. Banyak rekomendasi kami dapat diterapkan tanpa mengubah struktur bangunan, sehingga
+                    tetap cocok untuk lokasi sewaan.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- PENUTUP -->
+    <section class="fsr-closing">
+        <p class="lead reveal">Masih ragu cakupan mana yang Anda butuhkan? Konsultan kami akan membantu
+            menentukan dengan jujur, sebelum Anda memutuskan.</p>
+        <div class="fsr-cta-row reveal">
+            <a href="lokasi.html" class="fsr-btn-dark">Ajukan Jadwal Survei &rarr;</a>
+            <a href="lokasi.html" class="fsr-btn-outline">Tanya Dulu &rarr;</a>
+        </div>
+    </section>
+
+    <!-- TAUTAN KEMBALI -->
+    <div class="fsr-back">
+        <a href="work-with-us.html">&larr; Kembali ke Kerja Sama dengan Kami</a>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+        // animasi muncul saat scroll (tanpa JS, konten tetap tampil)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('visible'));
+        }
+    </script>
+</body>
+
+</html>

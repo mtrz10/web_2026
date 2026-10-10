@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Kristal - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           3. BREADCRUMB BAR
+           ========================================== */
+        .crumb-bar {
+            margin-top: 73px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 16px 50px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .crumb-bar a {
+            opacity: 0.65;
+            transition: opacity 0.3s;
+        }
+
+        .crumb-bar a:hover {
+            opacity: 1;
+        }
+
+        .crumb-bar .sep {
+            margin: 0 10px;
+            color: #e0333f;
+        }
+
+        /* ==========================================
+           4. HERO PARALAKS (HANYA GAMBAR)
+           ========================================== */
+        .hero-band {
+            height: 62vh;
+            min-height: 380px;
+            background: linear-gradient(rgba(23, 24, 23, 0.1), rgba(23, 24, 23, 0.55)),
+                url('img/artisan.jpeg') center/cover no-repeat fixed;
+        }
+
+        /* ==========================================
+           5. JUDUL & PENGANTAR TENGAH
+           ========================================== */
+        .lead-block {
+            padding: 120px 30px 110px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            padding-left: 12px;
+            line-height: 1.1;
+            color: var(--color-font);
+            margin-bottom: 22px;
+        }
+
+        .title-lines {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-primary);
+        }
+
+        section p.title-lines {
+            margin: 0;
+            opacity: 1;
+            max-width: none;
+        }
+
+        .title-lines::before,
+        .title-lines::after {
+            content: "";
+            flex: 0 1 70px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.6;
+        }
+
+        .lead-block .lead {
+            max-width: 860px;
+            margin: 44px auto 26px;
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .lead-block .lead-sub {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .lead-block .lead-mark {
+            display: block;
+            height: 40px;
+            width: auto;
+            margin: 46px auto 0;
+        }
+
+        /* ==========================================
+           6. KARTU TIMELINE (3 KOLOM)
+           ========================================== */
+        .timeline {
+            background-color: #0d0002;
+            padding: 110px 50px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .tl-card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-font);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+            color: var(--color-secondary);
+        }
+
+        .tl-img {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .tl-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .tl-card:hover .tl-img img {
+            transform: scale(1.06);
+        }
+
+        .tl-body {
+            padding: 34px 30px 38px;
+            border-top: 3px solid var(--color-primary);
+            flex: 1;
+        }
+
+        .tl-body h3 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 400;
+            line-height: 1.35;
+            text-align: center;
+        }
+
+        .tl-body .title-lines {
+            margin: 16px 0 24px;
+            color: #e0333f;
+            font-size: 0.95rem;
+        }
+
+        .tl-body .title-lines {
+            gap: 14px;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
+
+        .tl-body .title-lines::before,
+        .tl-body .title-lines::after {
+            flex-basis: 30px;
+        }
+
+        .tl-body p {
+            font-size: 0.93rem;
+            opacity: 0.78;
+            margin-bottom: 16px;
+        }
+
+        .tl-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tl-body .gal-link {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0;
+        }
+
+        /* ==========================================
+           7. BARIS GAMBAR + TEKS BERGANTIAN
+           ========================================== */
+        .duo-section {
+            background-color: var(--color-secondary);
+            padding: 110px 50px 40px;
+        }
+
+        .duo-head {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 90px;
+        }
+
+        .duo-head h2,
+        .banner-text h2,
+        .cards-head h2,
+        .about-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-top: 22px;
+        }
+
+        .duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+        }
+
+        .duo.reverse .duo-img {
+            order: 2;
+        }
+
+        .duo-img {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .duo-img.fit img {
+            object-fit: contain;
+        }
+
+        .duo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .duo:hover .duo-img img {
+            transform: scale(1.05);
+        }
+
+        .duo-text .eyebrow {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-primary);
+            margin-bottom: 14px;
+        }
+
+        .duo-text h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .duo-text h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--color-primary);
+            margin-top: 20px;
+        }
+
+        .duo-text p {
+            font-size: 0.98rem;
+            opacity: 0.82;
+            max-width: 480px;
+        }
+
+        /* ==========================================
+           8. BANNER PARALAKS + TEKS TENGAH
+           ========================================== */
+        .banner-img {
+            height: 50vh;
+            min-height: 320px;
+            background: url('img/bnr2.jpeg') center/cover no-repeat fixed;
+        }
+
+        .banner-text {
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 120px 30px;
+            text-align: center;
+        }
+
+        .banner-text .title-lines {
+            color: #e0333f;
+        }
+
+        .banner-text h2 {
+            margin-bottom: 36px;
+        }
+
+        .banner-text .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .banner-text p {
+            font-size: 0.98rem;
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           9. GALERI KARTU (SEPERTI "PERSONALITIES")
+           ========================================== */
+        .cards-section {
+            background-color: #0d0002;
+            padding: 110px 50px 120px;
+            color: var(--color-secondary);
+        }
+
+        .cards-head {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 70px;
+        }
+
+        .cards-head .title-lines {
+            color: #e0333f;
+        }
+
+        .cards-head p {
+            margin-top: 22px;
+            font-size: 0.98rem;
+            opacity: 0.8;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .gal-card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-font);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+        }
+
+        .gal-card .gal-img {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .gal-card .gal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .gal-card:hover .gal-img img {
+            transform: scale(1.06);
+        }
+
+        .gal-body {
+            padding: 30px 30px 34px;
+            border-top: 3px solid var(--color-primary);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gal-body h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .gal-body p {
+            font-size: 0.92rem;
+            opacity: 0.78;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .gal-link {
+            align-self: flex-start;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #e0333f;
+            border-bottom: 1px solid #e0333f;
+            padding-bottom: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .gal-card:hover .gal-link {
+            opacity: 0.7;
+        }
+
+        /* ==========================================
+           10. QUOTE
+           ========================================== */
+        .quote-section {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 140px 30px;
+            text-align: center;
+        }
+
+        .quote-section blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 2rem;
+            line-height: 1.45;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .quote-section cite {
+            display: block;
+            margin-top: 30px;
+            font-style: normal;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           11. CLOSING CTA
+           ========================================== */
+        .about-cta {
+            padding: 130px 50px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .about-cta h2 {
+            margin: 22px 0 18px;
+        }
+
+        .about-cta p {
+            max-width: 550px;
+            margin: 0 auto 35px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .btn-dark {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           12. ANIMASI MUNCUL SAAT SCROLL
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+
+        /* ==========================================
+           13. RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 1024px) {
+
+            .timeline-grid,
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .duo {
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .duo,
+            .banner-text .cols {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .duo.reverse .duo-img {
+                order: 0;
+            }
+
+            .hero-band,
+            .banner-img {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .crumb-bar {
+                margin-top: 63px;
+                padding: 14px 20px;
+                letter-spacing: 1.5px;
+            }
+
+            .hero-band {
+                height: 44vh;
+            }
+
+            .lead-block {
+                padding: 80px 25px 70px;
+            }
+
+            .page-title {
+                font-size: 2.4rem;
+                letter-spacing: 6px;
+                padding-left: 6px;
+            }
+
+            .lead-block .lead {
+                font-size: 1.25rem;
+            }
+
+            .timeline,
+            .duo-section,
+            .cards-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .timeline {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .timeline-grid,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .duo-section {
+                padding-top: 70px;
+            }
+
+            .duo-head {
+                margin-bottom: 60px;
+            }
+
+            .duo {
+                margin-bottom: 70px;
+            }
+
+            .duo-head h2,
+            .banner-text h2,
+            .cards-head h2,
+            .about-cta h2 {
+                font-size: 1.9rem;
+            }
+
+            .banner-text,
+            .quote-section,
+            .about-cta {
+                padding: 80px 25px;
+            }
+
+            .cards-section {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .quote-section blockquote {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- 2. BREADCRUMB -->
+    <nav class="crumb-bar" aria-label="Breadcrumb">
+        <a href="ang_new.html">Home</a><span class="sep">/</span><a href="about.html">Anggara Treasures</a><span
+            class="sep">/</span>Heritage &amp; Legacy
+    </nav>
+
+    <!-- 3. HERO PARALAKS -->
+    <section class="hero-band" role="img" aria-label="Pengrajin kristal Anggara Treasures"></section>
+
+    <!-- 4. JUDUL & PENGANTAR -->
+    <section class="lead-block">
+        <h1 class="page-title reveal">History</h1>
+        <h2 class="title-lines reveal">Warisan Dinasty Qing</h2>
+        <p class="lead reveal">Dari Dinasti Qing ke Anggara Treasures &mdash; menelusuri jejak kristal pusaka yang telah
+            dipuja sebagai lambang kekuasaan, kemurnian, dan keberuntungan sejak ribuan tahun silam.</p>
+        <p class="lead-sub reveal">Anggara Treasures menghadirkan kristal imperial fengshui pilihan yang dikurasi dengan
+            teliti, dipercaya membawa keberuntungan, kemakmuran, dan keseimbangan energi bagi rumah maupun usaha Anda.
+        </p>
+        <img class="lead-mark reveal" src="img/logo.png" alt="Anggara Treasures">
+    </section>
+
+    <!-- 5. TIMELINE (KARTU 3 KOLOM) -->
+    <section class="timeline" id="linimasa">
+        <div class="timeline-grid">
+            <article class="tl-card reveal" id="dinasti-qing">
+                <div class="tl-img"><img src="img/kiri.jpeg"
+                        alt="Ruang istana Dinasti Qing dengan naga giok, bola kristal, dan cakram giok"></div>
+                <div class="tl-body">
+                    <h3>Dinasti Qing</h3>
+                    <p class="title-lines">1644&ndash;1912 M</p>
+                    <p>Dinasti Qing adalah dinasti kekaisaran terakhir Tiongkok. Selama hampir tiga abad, batu giok dan
+                        kristal tetap dipandang sebagai lambang kemurnian, kekuasaan, dan perlindungan, dikoleksi oleh
+                        istana sekaligus dipakai dalam upacara dan sebagai hadiah kenegaraan.</p>
+                    <p>Bengkel-bengkel istana menyempurnakan seni pengukiran hingga mencapai kehalusan yang luar biasa.
+                        Pada masa ini pula jadeite hijau dari Myanmar mulai masuk dan dicintai, cikal bakal dari
+                        &ldquo;Jadeite Imperial&rdquo; yang kita kenal sekarang.</p>
+                    <a class="gal-link" href="dinasti-qing.html">Discover More</a>
+                </div>
+            </article>
+            <article class="tl-card reveal" id="kaisar-qianlong">
+                <div class="tl-img"><img src="img/tengah.jpeg"
+                        alt="Aula istana kekaisaran Tiongkok, kediaman Kaisar Qianlong"></div>
+                <div class="tl-body">
+                    <h3>Emperor Qianlong</h3>
+                    <p class="title-lines">1735&ndash;1796 M</p>
+                    <p>Kaisar Qianlong memerintah selama enam dekade dan dikenal sebagai salah satu penggemar giok
+                        terbesar dalam sejarah Tiongkok. Ia mengumpulkan ribuan karya giok, memerintahkan bengkel istana
+                        menciptakan benda-benda baru, dan tak jarang menuliskan sajaknya sendiri pada permukaan giok
+                        koleksinya.</p>
+                    <p>Di bawah patronasenya, seni giok mencapai puncak kemegahan dan menjadi standar keindahan
+                        imperial. Semangat inilah yang menjadi rujukan cara kami menilai kualitas, kehalusan ukiran, dan
+                        makna setiap kristal.</p>
+                    <a class="gal-link" href="kaisar-qianlong.html">Discover More</a>
+                </div>
+            </article>
+            <article class="tl-card reveal" id="anggara-treasures">
+                <div class="tl-img"><img src="img/kanan.jpeg"
+                        alt="Sosok berbusana kaisar Qing memandang kota modern, warisan yang berlanjut"></div>
+                <div class="tl-body">
+                    <h3>Anggara Treasures</h3>
+                    <p class="title-lines">Sekarang</p>
+                    <p>Anggara Treasures hadir untuk menghidupkan kembali warisan tersebut bagi generasi masa kini. Kami
+                        mengkurasi kristal imperial fengshui pilihan dengan standar keaslian dan kualitas tertinggi,
+                        dipercaya membawa perlindungan, keberuntungan, dan kemakmuran.</p>
+                    <p>Setiap kristal yang kami tawarkan adalah kelanjutan dari kisah panjang yang telah dimulai sejak
+                        ribuan tahun lalu, menghadirkan keseimbangan energi ke dalam rumah maupun usaha Anda.</p>
+                    <a class="gal-link" href="anggara-treasures.html">Discover More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 6. PRINSIP KURASI (BARIS BERGANTIAN) -->
+    <section class="duo-section">
+        <div class="duo-head reveal">
+            <p class="title-lines">Sophisticated</p>
+            <h2>The Three C's of Anggara Treasures Crystals</h2>
+        </div>
+
+        <div class="duo">
+            <div class="duo-img reveal"><img src="img/about1.png" alt="Liontin giok berukir di atas dudukan kayu">
+            </div>
+            <div class="duo-text reveal">
+                <p class="eyebrow">Clarity</p>
+                <h3>Hanya yang paling murni yang kami pilih.</h3>
+                <p>Setiap kristal dinilai dari tingkat kejernihannya &mdash; inklusi dan noda internal menjadi
+                    penentu. Hanya kristal transparan dengan kejernihan tertinggi yang masuk ke dalam koleksi kami.</p>
+            </div>
+        </div>
+
+        <div class="duo reverse">
+            <div class="duo-img reveal"><img src="img/about2.png" alt="Kristal citrine berbentuk mangkuk emas imperial">
+            </div>
+            <div class="duo-text reveal">
+                <p class="eyebrow">Color</p>
+                <h3>Warna alami, tanpa rekayasa.</h3>
+                <p>Tidak ada pewarnaan atau perlakuan buatan pada kristal kami. Kemurnian warna yang terbentuk
+                    secara alami inilah yang menentukan keaslian dan nilainya.</p>
+            </div>
+        </div>
+
+        <div class="duo">
+            <div class="duo-img fit reveal"><img src="img/about3.png"
+                    alt="Kompas feng shui dan qilin ametis pada meja kayu"></div>
+            <div class="duo-text reveal">
+                <p class="eyebrow">Handcrafted</p>
+                <h3>Dipahat tangan, bukan mesin.</h3>
+                <p>Setiap potongan diukir langsung oleh tangan maestro pengrajin dengan teknik turun-temurun &mdash;
+                    presisi yang memaksimalkan pantulan cahaya dan energi di dalamnya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. BANNER PARALAKS + SENI PENGUKIRAN -->
+    <section id="seni-pengukiran">
+        <div class="banner-img" role="img" aria-label="Seni pengukiran kristal"></div>
+        <div class="banner-text">
+            <div class="reveal">
+                <p class="title-lines">Jalur Sutra &amp; Seni Pengukiran</p>
+                <h2>Warisan Tangan Para Maestro</h2>
+            </div>
+            <div class="cols reveal">
+                <p>Sepanjang jalur perdagangan kuno, batu-batu pusaka dari berbagai penjuru Asia mengalir masuk ke
+                    Tiongkok, memperkaya khazanah kristal yang dikenal hingga kini. Di balik setiap potongnya, tangan
+                    para maestro pengukir menghabiskan waktu berbulan-bulan untuk membentuk kristal menjadi karya
+                    seni.</p>
+                <p>Presisi teknis dipadukan dengan penghormatan terhadap makna spiritual di dalamnya &mdash; tradisi
+                    inilah yang terus kami jaga dalam proses kurasi setiap koleksi Anggara Treasures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. HARI INI + GALERI KARTU (disembunyikan; hapus atribut "hidden" untuk menampilkan kembali) -->
+    <section class="cards-section" id="masa-kini" hidden>
+        <div class="cards-head reveal">
+            <p class="title-lines">Hari Ini</p>
+            <h2>Menghidupkan Warisan di Masa Kini</h2>
+            <p>Ribuan tahun setelah kristal pertama kali dipuja di istana Tiongkok kuno, Anggara Treasures hadir untuk
+                menghidupkan kembali warisan tersebut bagi generasi masa kini. Kami mengkurasi kristal imperial
+                fengshui pilihan dengan standar keaslian dan kualitas tertinggi.</p>
+            <p>Setiap kristal yang kami tawarkan adalah kelanjutan dari kisah panjang yang telah dimulai sejak ribuan
+                tahun lalu &mdash; menghadirkan keberuntungan, kemakmuran, dan keseimbangan ke dalam rumah maupun usaha
+                Anda.</p>
+        </div>
+        <div class="gallery">
+            <a class="gal-card reveal" href="koleksi.html">
+                <div class="gal-img"><img src="img/jade1.png" alt="Koleksi Kristal"></div>
+                <div class="gal-body">
+                    <h3>Koleksi Kristal</h3>
+                    <p>Dari perhiasan pribadi hingga penghias ruang, temukan kristal imperial fengshui yang selaras
+                        dengan energi Anda.</p>
+                    <span class="gal-link">Lihat Koleksi</span>
+                </div>
+            </a>
+            <a class="gal-card reveal" href="buting.html">
+                <div class="gal-img"><img src="img/banner.jpeg" alt="Pengalaman Membeli"></div>
+                <div class="gal-body">
+                    <h3>Pengalaman Membeli</h3>
+                    <p>Lebih dari sekadar transaksi &mdash; sebuah perjalanan personal untuk menemukan kristal yang
+                        benar-benar selaras dengan Anda.</p>
+                    <span class="gal-link">Selengkapnya</span>
+                </div>
+            </a>
+            <a class="gal-card reveal" href="lokasi.html">
+                <div class="gal-img"><img src="img/artisan.jpeg" alt="Lokasi Kami"></div>
+                <div class="gal-body">
+                    <h3>Lokasi Kami</h3>
+                    <p>Cari lokasi terdekat Anggara Treasures untuk berkonsultasi langsung tentang kristal imperial
+                        fengshui yang tepat untuk Anda.</p>
+                    <span class="gal-link">Temukan Toko</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 9. QUOTE -->
+    <section class="quote-section">
+        <blockquote class="reveal">
+            "Kristal bukan sekadar batu &mdash; ia adalah penjaga energi, saksi waktu, dan warisan yang terus
+            hidup."
+            <cite>Anggara Treasures</cite>
+        </blockquote>
+    </section>
+
+    <!-- 10. CLOSING CTA -->
+    <section class="about-cta">
+        <p class="title-lines reveal">Langkah Berikutnya</p>
+        <h2 class="reveal">Temukan Kristal Warisan Anda</h2>
+        <p class="reveal">Jelajahi koleksi kristal imperial fengshui kami dan temukan energi yang selaras dengan
+            perjalanan Anda.</p>
+        <a href="koleksi.html" class="btn-dark reveal">Lihat Koleksi</a>
+    </section>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+        // animasi muncul saat scroll (tanpa JS, konten tetap tampil)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('visible'));
+        }
+    </script>
+</body>
+
+</html>

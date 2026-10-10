@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membaca Peta BaZi: Titik Awal Anda - Jurnal Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           3. BREADCRUMB BAR
+           ========================================== */
+        .crumb-bar {
+            margin-top: 73px;
+            background-color: var(--color-font);
+            color: var(--color-secondary);
+            padding: 16px 50px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .crumb-bar a {
+            opacity: 0.65;
+            transition: opacity 0.3s;
+        }
+
+        .crumb-bar a:hover {
+            opacity: 1;
+        }
+
+        .crumb-bar .sep {
+            margin: 0 10px;
+            color: #e0333f;
+        }
+        /* ==========================================
+           4. HERO PARALAKS (HANYA GAMBAR)
+           ========================================== */
+        .hero-band {
+            height: 62vh;
+            min-height: 380px;
+            background: linear-gradient(rgba(23, 24, 23, 0.1), rgba(23, 24, 23, 0.55)),
+                url('img/artisan.jpeg') center/cover no-repeat fixed;
+        }
+
+        /* ==========================================
+           5. JUDUL & PENGANTAR TENGAH
+           ========================================== */
+        .lead-block {
+            padding: 120px 30px 40px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2.6rem;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            line-height: 1.25;
+            color: var(--color-font);
+            margin-bottom: 18px;
+        }
+
+        .title-lines {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-primary);
+        }
+
+        section p.title-lines {
+            margin: 0;
+            opacity: 1;
+            max-width: none;
+        }
+
+        .title-lines::before,
+        .title-lines::after {
+            content: "";
+            flex: 0 1 70px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.6;
+        }
+
+        .lead-block .lead {
+            max-width: 860px;
+            margin: 18px auto 18px;
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           11. CLOSING CTA
+           ========================================== */
+        .about-cta {
+            padding: 130px 50px;
+            text-align: center;
+            background-color: var(--color-secondary);
+        }
+
+        .about-cta h2 {
+            margin: 22px 0 18px;
+        }
+
+        .about-cta p {
+            max-width: 550px;
+            margin: 0 auto 35px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .btn-dark {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .article-meta {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            margin-bottom: 14px;
+        }
+
+        .article-meta .dot {
+            opacity: 0.4;
+            margin: 0 6px;
+        }
+
+        /* ==========================================
+           ARTIKEL: ISI
+           ========================================== */
+        .article-body {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 20px 30px 40px;
+            background-color: var(--color-secondary);
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 26px;
+            color: var(--color-font);
+        }
+
+        .article-body h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 46px 0 20px;
+            color: var(--color-primary);
+        }
+
+        .back-link-wrap {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 30px 70px;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-primary);
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.65;
+        }
+
+        @media (max-width: 768px) {
+            .crumb-bar {
+                margin-top: 63px;
+                padding: 14px 20px;
+                letter-spacing: 1.5px;
+            }
+
+            .lead-block {
+                padding: 80px 25px 30px;
+            }
+
+            .page-title {
+                font-size: 1.9rem;
+            }
+
+            .lead-block .lead {
+                font-size: 1.2rem;
+            }
+
+            .article-body {
+                padding: 15px 20px 30px;
+            }
+        }
+        /* ==========================================
+           12. ANIMASI MUNCUL SAAT SCROLL
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+    <!-- 2. BREADCRUMB -->
+    <nav class="crumb-bar" aria-label="Breadcrumb">
+        <a href="ang_new.html">Beranda</a><span class="sep">/</span><a href="index.html#jurnal">Jurnal Anggara</a><span
+            class="sep">/</span>Membaca Peta BaZi: Titik Awal Anda
+    </nav>
+
+    <!-- 4. JUDUL & LEDE -->
+    <section class="lead-block">
+        <p class="article-meta reveal">Jurnal Anggara <span class="dot">&bull;</span> 7 menit baca</p>
+        <h1 class="page-title reveal">Membaca Peta BaZi: Titik Awal Anda</h1>
+        <p class="lead reveal">Peta BaZi, atau Empat Pilar Nasib, adalah titik awal untuk memahami potensi dan tantangan hidup berdasarkan waktu kelahiran seseorang.</p>
+    </section>
+
+    <!-- 5. ISI ARTIKEL -->
+    <section class="article-body">
+        <p>BaZi&mdash;yang secara harfiah berarti &ldquo;delapan karakter&rdquo;&mdash;disusun dari empat pilar: tahun, bulan, hari, dan jam kelahiran. Setiap pilar terdiri dari dua karakter yang mewakili kombinasi Batang Langit dan Cabang Bumi, membentuk peta unik yang mencerminkan struktur energi bawaan seseorang.</p>
+        <h3>Lima Elemen sebagai Kunci Keseimbangan</h3>
+        <p>Di dalam peta BaZi, lima elemen&mdash;Kayu, Api, Tanah, Logam, dan Air&mdash;saling berinteraksi, ada yang memperkuat dan ada yang menahan. Ketimpangan salah satu elemen dalam peta kelahiran dipercaya dapat memengaruhi berbagai aspek kehidupan, mulai dari kesehatan hingga arah karier.</p>
+        <p>Memahami elemen mana yang kurang atau berlebih dalam peta Anda adalah langkah pertama sebelum menentukan pendukung yang tepat&mdash;termasuk jenis kristal yang selaras dengan kebutuhan energi tersebut. Elemen Air misalnya sering diperkuat dengan kristal bertekstur dingin, sementara elemen Api dapat diseimbangkan dengan warna-warna hangat.</p>
+        <p>Anggara Treasures percaya bahwa kristal bekerja paling baik ketika dipilih bukan karena tren, melainkan karena keselarasan dengan peta energi pribadi Anda. Membaca BaZi adalah langkah awal menuju pilihan yang lebih bermakna.</p>
+    </section>
+
+    <div class="back-link-wrap">
+        <a class="back-link" href="index.html#jurnal">&larr; Kembali ke Jurnal</a>
+    </div>
+
+    <!-- 7. CTA PENUTUP -->
+    <section class="about-cta">
+        <p class="title-lines reveal">Terapkan Wawasannya</p>
+        <h2 class="reveal">Temukan Kristal yang Selaras dengan Anda</h2>
+        <p class="reveal">Jelajahi koleksi kristal imperial fengshui kami dan temukan kristal yang paling sesuai dengan kebutuhan energi Anda.</p>
+        <a href="koleksi.html" class="btn-dark reveal">Lihat Koleksi</a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="navbar.js"></script>
+    <script>
+        // animasi muncul saat scroll (tanpa JS, konten tetap tampil)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('visible'));
+        }
+    </script>
+</body>
+
+</html>

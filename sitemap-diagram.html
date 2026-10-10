@@ -1,0 +1,250 @@
+<title>Peta Situs Anggara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+  rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf7f1;
+    --card: #ffffff;
+    --ink: #20201e;
+    --ink-dim: #716a60;
+    --line: #e4ddcf;
+    --accent: #9c0512;
+    --accent-soft: #9c051214;
+    --accent-line: #c98a86;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171310;
+      --card: #231d18;
+      --ink: #f2ece2;
+      --ink-dim: #aca294;
+      --line: #3b332a;
+      --accent: #e2655d;
+      --accent-soft: #e2655d1f;
+      --accent-line: #7a4541;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #171310;
+    --card: #231d18;
+    --ink: #f2ece2;
+    --ink-dim: #aca294;
+    --line: #3b332a;
+    --accent: #e2655d;
+    --accent-soft: #e2655d1f;
+    --accent-line: #7a4541;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    padding-inline: 20px;
+    padding-block: 52px 70px;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+    margin: 10px 0 12px;
+  }
+
+  .lede {
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    max-width: 60ch;
+    line-height: 1.65;
+    margin: 0 0 40px;
+  }
+
+  .diagram-scroll {
+    overflow-x: auto;
+    margin-bottom: 40px;
+  }
+
+  svg {
+    display: block;
+    min-width: 900px;
+    width: 100%;
+    height: auto;
+  }
+
+  .node rect {
+    fill: var(--card);
+    stroke: var(--line);
+  }
+
+  .node.root rect {
+    stroke: var(--accent);
+    stroke-width: 1.4;
+  }
+
+  .node .title {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 16px;
+    fill: var(--ink);
+  }
+
+  .node.root .title {
+    font-size: 17px;
+  }
+
+  .node .file {
+    font-size: 11px;
+    fill: var(--ink-dim);
+  }
+
+  .node .desc {
+    font-size: 11.5px;
+    font-style: italic;
+    fill: var(--ink-dim);
+  }
+
+  .node .tag {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    fill: var(--accent);
+    font-weight: 600;
+  }
+
+  .branch {
+    fill: none;
+    stroke: var(--accent-line);
+    stroke-width: 1.6;
+  }
+
+  .key {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-dim);
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+
+  .key span.lbl {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Anggara Treasures</p>
+  <h1>Peta Situs</h1>
+  <p class="lede">
+    Struktur halaman untuk referensi penulisan konten. Tiap kotak menunjukkan nama halaman, nama file, dan
+    jenis konten yang perlu diisi di sana.
+  </p>
+
+  <div class="diagram-scroll">
+    <svg viewBox="0 0 1200 475" role="img"
+      aria-label="Peta situs Anggara Treasures: Beranda bercabang ke Tentang Kami, Koleksi Kristal, Jurnal, dan Lokasi; Koleksi Kristal memiliki sub-halaman Halaman Detail Produk, dan Jurnal memiliki sub-halaman Artikel.">
+
+      <!-- ===== garis cabang (digambar dulu, di belakang kotak) ===== -->
+      <g class="branch">
+        <!-- batang dari Beranda turun ke jalur horizontal -->
+        <line x1="600" y1="100" x2="600" y2="140"></line>
+        <!-- jalur horizontal penghubung 4 halaman utama -->
+        <line x1="180" y1="140" x2="1020" y2="140"></line>
+        <!-- turun ke masing-masing halaman utama -->
+        <line x1="180" y1="140" x2="180" y2="170"></line>
+        <line x1="460" y1="140" x2="460" y2="170"></line>
+        <line x1="740" y1="140" x2="740" y2="170"></line>
+        <line x1="1020" y1="140" x2="1020" y2="170"></line>
+        <!-- turun ke sub-halaman -->
+        <line x1="460" y1="270" x2="460" y2="370"></line>
+        <line x1="740" y1="270" x2="740" y2="370"></line>
+      </g>
+
+      <!-- ===== Beranda ===== -->
+      <g class="node root">
+        <rect x="500" y="20" width="200" height="80" rx="8"></rect>
+        <text x="600" y="48" text-anchor="middle" class="title">Beranda</text>
+        <text x="600" y="66" text-anchor="middle" class="file">index.html</text>
+        <text x="600" y="84" text-anchor="middle" class="desc">Pengantar brand &amp; sorotan koleksi</text>
+      </g>
+
+      <!-- ===== 4 halaman utama ===== -->
+      <g class="node">
+        <rect x="80" y="170" width="200" height="100" rx="8"></rect>
+        <text x="180" y="196" text-anchor="middle" class="title">Tentang Kami</text>
+        <text x="180" y="214" text-anchor="middle" class="file">about.html</text>
+        <text x="180" y="236" text-anchor="middle" class="desc">Sejarah, nilai brand,</text>
+        <text x="180" y="250" text-anchor="middle" class="desc">proses pengrajin</text>
+      </g>
+
+      <g class="node">
+        <rect x="360" y="170" width="200" height="100" rx="8"></rect>
+        <text x="460" y="196" text-anchor="middle" class="title">Koleksi Kristal</text>
+        <text x="460" y="214" text-anchor="middle" class="file">koleksi.html</text>
+        <text x="460" y="236" text-anchor="middle" class="desc">Katalog produk per</text>
+        <text x="460" y="250" text-anchor="middle" class="desc">kategori</text>
+      </g>
+
+      <g class="node">
+        <rect x="640" y="170" width="200" height="100" rx="8"></rect>
+        <text x="740" y="196" text-anchor="middle" class="title">Jurnal</text>
+        <text x="740" y="214" text-anchor="middle" class="file">jurnal.html</text>
+        <text x="740" y="236" text-anchor="middle" class="desc">Daftar artikel edukasi</text>
+        <text x="740" y="250" text-anchor="middle" class="desc">feng shui &amp; kristal</text>
+      </g>
+
+      <g class="node">
+        <rect x="920" y="170" width="200" height="100" rx="8"></rect>
+        <text x="1020" y="196" text-anchor="middle" class="title">Lokasi</text>
+        <text x="1020" y="214" text-anchor="middle" class="file">lokasi.html</text>
+        <text x="1020" y="236" text-anchor="middle" class="desc">Alamat, jam buka,</text>
+        <text x="1020" y="250" text-anchor="middle" class="desc">peta butik</text>
+      </g>
+
+      <!-- ===== sub-halaman (template berulang) ===== -->
+      <g class="node">
+        <rect x="350" y="370" width="220" height="100" rx="8" stroke-dasharray="4 4"></rect>
+        <text x="460" y="392" text-anchor="middle" class="tag">Template Berulang</text>
+        <text x="460" y="412" text-anchor="middle" class="title">Halaman Detail Produk</text>
+        <text x="460" y="430" text-anchor="middle" class="file">item-detail.html</text>
+        <text x="460" y="450" text-anchor="middle" class="desc">1 format, diisi ulang untuk tiap kategori</text>
+      </g>
+
+      <g class="node">
+        <rect x="630" y="370" width="220" height="100" rx="8" stroke-dasharray="4 4"></rect>
+        <text x="740" y="392" text-anchor="middle" class="tag">Template Berulang</text>
+        <text x="740" y="412" text-anchor="middle" class="title">Artikel</text>
+        <text x="740" y="430" text-anchor="middle" class="file">artikel.html</text>
+        <text x="740" y="450" text-anchor="middle" class="desc">1 format, diisi ulang untuk tiap judul</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="key">
+    <div><span class="lbl">Nama Halaman</span> &mdash; judul tebal di tiap kotak</div>
+    <div><span class="lbl">Nama File</span> &mdash; teks kecil di bawahnya, untuk developer</div>
+    <div><span class="lbl">Garis putus-putus</span> &mdash; halaman template, dipakai berulang kali dengan konten
+      berbeda-beda</div>
+  </div>
+</div>

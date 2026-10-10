@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelang Kristal Kuarsa Imperial - Anggara Treasures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ==========================================
+           1. VARIABEL WARNA & RESET STYLING
+           ========================================== */
+        :root {
+            --color-primary: #9c0512;
+            --color-secondary: #ffffff;
+            --color-font: #171817;
+            --color-studio: #f5f1ea;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--color-secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .pd-btn {
+            padding: 16px 36px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .pd-btn-solid {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            border: 1px solid var(--color-primary);
+        }
+
+        .pd-btn-solid:hover {
+            background-color: #7a0410;
+            border-color: #7a0410;
+        }
+
+        .pd-btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: var(--color-secondary);
+        }
+
+        .pd-btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .pd-btn-outline.dark {
+            border-color: rgba(23, 24, 23, 0.4);
+            color: var(--color-font);
+        }
+
+        .pd-btn-outline.dark:hover {
+            background-color: rgba(23, 24, 23, 0.06);
+        }
+
+        /* ==========================================
+           2. HERO SINEMATIK FULL-BLEED
+           ========================================== */
+        .pd-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 640px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            padding: 0 20px 70px;
+            background-color: #0d0002;
+            color: var(--color-secondary);
+            overflow: hidden;
+        }
+
+        .pd-hero-crumb,
+        .pd-hero h1,
+        .pd-hero-tagline,
+        .pd-scroll-cue {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .pd-hero-crumb {
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .pd-hero-crumb a {
+            color: rgba(255, 255, 255, 0.85);
+            transition: opacity 0.3s;
+        }
+
+        .pd-hero-crumb a:hover {
+            opacity: 0.6;
+        }
+
+        .pd-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .pd-hero h1 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pd-hero-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.75);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pd-scroll-cue {
+            position: absolute;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pd-scroll-cue::after {
+            content: "";
+            width: 1px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ==========================================
+           3. STATEMENT EDITORIAL
+           ========================================== */
+        .pd-statement {
+            padding: 150px 20px;
+            text-align: center;
+        }
+
+        .pd-statement blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            max-width: 780px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ==========================================
+           4. STUDIO SHOT + VARIAN
+           ========================================== */
+        .pd-studio {
+            min-height: 130vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(245, 241, 234, 0.4), rgba(245, 241, 234, 0.75)),
+                url("img/bg_product.jpg") center/cover no-repeat fixed;
+            padding: 120px 20px 90px;
+            text-align: center;
+        }
+
+        .pd-studio-img {
+            width: min(520px, 85vw);
+            margin: 0 auto 50px;
+            transition: filter 0.4s ease;
+        }
+
+        .pd-studio-specs {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .pd-studio-specs div {
+            min-width: 120px;
+        }
+
+        .pd-studio-specs .pd-spec-value {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .pd-studio-specs .pd-spec-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(23, 24, 23, 0.5);
+        }
+
+        .pd-variants {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .pd-variant {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.55;
+            transition: opacity 0.3s ease;
+        }
+
+        .pd-variant:hover,
+        .pd-variant.active {
+            opacity: 1;
+        }
+
+        .pd-variant-swatch {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .pd-variant.active .pd-variant-swatch {
+            border-color: var(--color-primary);
+        }
+
+        .pd-variant-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           5. FITUR FULL-BLEED SATU PER LAYAR
+           ========================================== */
+        .pd-feature {
+            padding: 110px 20px;
+            text-align: center;
+        }
+
+        .pd-feature.alt {
+            background-color: var(--color-studio);
+        }
+
+        .pd-feature-img {
+            width: min(420px, 80vw);
+            margin: 0 auto 44px;
+        }
+
+        .pd-feature h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1.7rem;
+            margin-bottom: 14px;
+        }
+
+        .pd-feature p {
+            color: rgba(23, 24, 23, 0.7);
+            max-width: 480px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           6. DIAGRAM DESAIN BERLABEL
+           ========================================== */
+        .pd-design {
+            padding: 120px 20px;
+            background-color: #0d0002;
+            color: var(--color-secondary);
+            text-align: center;
+        }
+
+        .pd-design .eyebrow {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .pd-design h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            margin: 14px 0 60px;
+        }
+
+        .pd-design-stage {
+            position: relative;
+            width: min(420px, 85vw);
+            margin: 0 auto;
+        }
+
+        .pd-design-stage img {
+            width: 100%;
+            display: block;
+        }
+
+        .pd-design-marker {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            background-color: rgba(13, 0, 2, 0.6);
+        }
+
+        .pd-design-m1 {
+            top: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pd-design-m2 {
+            top: 48%;
+            left: 8%;
+        }
+
+        .pd-design-m3 {
+            top: 48%;
+            right: 8%;
+        }
+
+        .pd-design-legend {
+            max-width: 560px;
+            margin: 60px auto 0;
+            text-align: left;
+            display: grid;
+            gap: 26px;
+        }
+
+        .pd-design-legend-item {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .pd-design-legend-item span.num {
+            flex: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .pd-design-legend-item h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .pd-design-legend-item p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ==========================================
+           7. SPESIFIKASI ACCORDION
+           ========================================== */
+        .pd-acc-section {
+            padding: 120px 20px;
+        }
+
+        .pd-acc-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .pd-acc-inner>.eyebrow {
+            display: block;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .pd-acc-inner h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pd-acc-item {
+            border-top: 1px solid rgba(23, 24, 23, 0.15);
+        }
+
+        .pd-acc-item:last-child {
+            border-bottom: 1px solid rgba(23, 24, 23, 0.15);
+        }
+
+        .pd-acc-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 24px 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+        }
+
+        .pd-acc-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .pd-acc-item summary::after {
+            content: "+";
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .pd-acc-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .pd-acc-body {
+            padding: 0 4px 28px;
+        }
+
+        .pd-acc-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 16px;
+            padding: 10px 0;
+            font-size: 0.92rem;
+        }
+
+        .pd-acc-row dt {
+            color: rgba(23, 24, 23, 0.5);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 1.2px;
+        }
+
+        /* ==========================================
+           8. PRODUK TERKAIT (CAROUSEL)
+           ========================================== */
+        .pd-related {
+            background-color: var(--color-studio);
+            padding: 110px 0;
+        }
+
+        .pd-related-head {
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 50px;
+        }
+
+        .pd-related-head h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            margin-top: 14px;
+        }
+
+        .pd-related-track {
+            display: flex;
+            gap: 26px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 20px 10px;
+            scrollbar-width: none;
+        }
+
+        .pd-related-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pd-related-card {
+            flex: none;
+            width: 240px;
+            scroll-snap-align: start;
+            text-align: center;
+        }
+
+        .pd-related-frame {
+            aspect-ratio: 1 / 1;
+            background-color: var(--color-secondary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .pd-related-card:hover .pd-related-frame {
+            box-shadow: 0 10px 24px rgba(23, 24, 23, 0.12);
+        }
+
+        .pd-related-frame img {
+            width: 62%;
+            height: 62%;
+            object-fit: contain;
+        }
+
+        .pd-related-card h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .pd-related-card p {
+            font-size: 0.78rem;
+            color: rgba(23, 24, 23, 0.55);
+        }
+
+        .pd-related-nav {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .pd-related-nav button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(23, 24, 23, 0.25);
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .pd-related-nav button:hover {
+            background-color: rgba(23, 24, 23, 0.06);
+        }
+
+        /* ==========================================
+           9. CTA PENUTUP
+           ========================================== */
+        .pd-cta {
+            padding: 130px 20px;
+            text-align: center;
+        }
+
+        .pd-cta .eyebrow {
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .pd-cta h2 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 2rem;
+            max-width: 600px;
+            margin: 0 auto 34px;
+        }
+
+        /* ==========================================
+           10. RESPONSIVE
+           ========================================== */
+        @media (max-width: 760px) {
+            .pd-hero-crumb {
+                top: 90px;
+                font-size: 0.62rem;
+            }
+
+            .pd-studio {
+                background-attachment: scroll;
+            }
+
+            .pd-studio-specs {
+                gap: 30px;
+            }
+
+            .pd-design-legend-item {
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- 1. HERO SINEMATIK -->
+    <section class="pd-hero">
+        <p class="pd-hero-crumb"><a href="koleksi.html">Koleksi Kristal</a> / Personal Collection / Gelang</p>
+        <video class="pd-hero-video" src="vid/vid1.mp4" autoplay muted loop playsinline></video>
+        <h1>Gelang Kristal Kuarsa Imperial</h1>
+        <p class="pd-hero-tagline">Keseimbangan dalam setiap untai.</p>
+        <span class="pd-scroll-cue">Jelajahi</span>
+    </section>
+
+    <!-- 2. STATEMENT EDITORIAL -->
+    <section class="pd-statement">
+        <blockquote>&ldquo;Pengingat harian untuk tetap tenang di tengah kesibukan.&rdquo;</blockquote>
+    </section>
+
+    <!-- 3. STUDIO SHOT + PEMILIH VARIAN -->
+    <section class="pd-studio">
+        <img class="pd-studio-img" id="pdStudioImg" src="img/item-menu/bracelet.png"
+            alt="Gelang Kristal Kuarsa Imperial tampilan studio">
+        <div class="pd-studio-specs">
+            <div>
+                <p class="pd-spec-value">Kuarsa Kristal Alami</p>
+                <p class="pd-spec-label">Material</p>
+            </div>
+            <div>
+                <p class="pd-spec-value">8 mm</p>
+                <p class="pd-spec-label">Diameter Manik</p>
+            </div>
+            <div>
+                <p class="pd-spec-value">Rose Gold</p>
+                <p class="pd-spec-label">Aksen Logam</p>
+            </div>
+        </div>
+        <div class="pd-variants" id="pdVariants">
+            <button type="button" class="pd-variant active" data-hue="0">
+                <span class="pd-variant-swatch" style="background:#c9b7e0;"></span>
+                <span class="pd-variant-label">Lavender Kuarsa</span>
+            </button>
+            <button type="button" class="pd-variant" data-hue="300">
+                <span class="pd-variant-swatch" style="background:#e3b9c3;"></span>
+                <span class="pd-variant-label">Rose Kuarsa</span>
+            </button>
+            <button type="button" class="pd-variant" data-hue="140">
+                <span class="pd-variant-swatch" style="background:#d9c88f;"></span>
+                <span class="pd-variant-label">Citrine Kuning</span>
+            </button>
+            <button type="button" class="pd-variant" data-hue="230">
+                <span class="pd-variant-swatch" style="background:#8f8f96;"></span>
+                <span class="pd-variant-label">Obsidian Hitam</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 4. FITUR 1 -->
+    <section class="pd-feature">
+        <img class="pd-feature-img" src="img/item-menu/bracelet.png" alt="Charm rose gold close-up">
+        <h2>Diukir Tangan, Satu per Satu</h2>
+        <p>Motif klasik pada charm aksen menjadi tanda tangan Anggara Treasures, diukir dengan tangan oleh pengrajin
+            berpengalaman.</p>
+    </section>
+
+    <!-- 5. FITUR 2 -->
+    <section class="pd-feature alt">
+        <img class="pd-feature-img" src="img/jade1.png" alt="Detail ukiran kristal">
+        <h2>Nyaman Dipakai Sepanjang Hari</h2>
+        <p>Tali elastis menyesuaikan pergelangan tangan dengan lembut, tanpa mengurangi keindahan setiap manik
+            kristalnya.</p>
+    </section>
+
+    <!-- 6. DIAGRAM DESAIN BERLABEL -->
+    <section class="pd-design">
+        <span class="eyebrow">Desain</span>
+        <h2>Anatomi Gelang Kristal</h2>
+        <div class="pd-design-stage">
+            <img src="img/item-menu/bracelet.png" alt="Diagram gelang kristal">
+            <span class="pd-design-marker pd-design-m1">1</span>
+            <span class="pd-design-marker pd-design-m2">2</span>
+            <span class="pd-design-marker pd-design-m3">3</span>
+        </div>
+        <div class="pd-design-legend">
+            <div class="pd-design-legend-item">
+                <span class="num">1</span>
+                <div>
+                    <h4>Charm Rose Gold</h4>
+                    <p>Diukir tangan dengan motif klasik, menjadi aksen utama gelang.</p>
+                </div>
+            </div>
+            <div class="pd-design-legend-item">
+                <span class="num">2</span>
+                <div>
+                    <h4>Manik Kuarsa 8mm</h4>
+                    <p>Dipilih dari bongkahan kristal alami berkualitas tinggi.</p>
+                </div>
+            </div>
+            <div class="pd-design-legend-item">
+                <span class="num">3</span>
+                <div>
+                    <h4>Tali Elastis Premium</h4>
+                    <p>Menyesuaikan pergelangan 15&ndash;19 cm dengan nyaman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SPESIFIKASI ACCORDION -->
+    <section class="pd-acc-section">
+        <div class="pd-acc-inner">
+            <span class="eyebrow">Detail Produk</span>
+            <h2>Spesifikasi Lengkap</h2>
+
+            <details class="pd-acc-item" open>
+                <summary>Material</summary>
+                <div class="pd-acc-body">
+                    <dl>
+                        <div class="pd-acc-row">
+                            <dt>Material Utama</dt>
+                            <dd>Kuarsa Kristal Alami (Natural Quartz Crystal)</dd>
+                        </div>
+                        <div class="pd-acc-row">
+                            <dt>Aksen Logam</dt>
+                            <dd>Lapisan Rose Gold pada charm ukiran</dd>
+                        </div>
+                    </dl>
+                </div>
+            </details>
+
+            <details class="pd-acc-item">
+                <summary>Ukuran &amp; Berat</summary>
+                <div class="pd-acc-body">
+                    <dl>
+                        <div class="pd-acc-row">
+                            <dt>Diameter Manik</dt>
+                            <dd>8 mm per manik, dirangkai simetris</dd>
+                        </div>
+                        <div class="pd-acc-row">
+                            <dt>Ukuran Lingkar</dt>
+                            <dd>Elastis, menyesuaikan pergelangan 15&ndash;19 cm</dd>
+                        </div>
+                        <div class="pd-acc-row">
+                            <dt>Berat</dt>
+                            <dd>&plusmn; 18 gram</dd>
+                        </div>
+                    </dl>
+                </div>
+            </details>
+
+            <details class="pd-acc-item">
+                <summary>Elemen Feng Shui</summary>
+                <div class="pd-acc-body">
+                    <dl>
+                        <div class="pd-acc-row">
+                            <dt>Elemen</dt>
+                            <dd>Air &amp; Kayu &mdash; keseimbangan dan ketenangan</dd>
+                        </div>
+                    </dl>
+                </div>
+            </details>
+
+            <details class="pd-acc-item">
+                <summary>Perawatan &amp; Garansi</summary>
+                <div class="pd-acc-body">
+                    <dl>
+                        <div class="pd-acc-row">
+                            <dt>Perawatan</dt>
+                            <dd>Hindari kontak langsung dengan parfum dan air sabun; simpan di kantong kain lembut
+                            </dd>
+                        </div>
+                        <div class="pd-acc-row">
+                            <dt>Kemasan</dt>
+                            <dd>Kotak kayu eksklusif Anggara Treasures dengan sertifikat keaslian</dd>
+                        </div>
+                    </dl>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- 8. PRODUK TERKAIT (CAROUSEL) -->
+    <section class="pd-related">
+        <div class="pd-related-head">
+            <span class="eyebrow">Jelajahi Lebih Lanjut</span>
+            <h2>Koleksi Personal Lainnya</h2>
+        </div>
+        <div class="pd-related-track" id="pdRelatedTrack">
+            <a href="koleksi.html#personal-collection" class="pd-related-card">
+                <div class="pd-related-frame">
+                    <img src="img/jade1.png" alt="Kalung Liontin Giok Imperial">
+                </div>
+                <h3>Kalung Liontin Giok Imperial</h3>
+                <p>Simbol keberuntungan klasik</p>
+            </a>
+            <a href="koleksi.html#personal-collection" class="pd-related-card">
+                <div class="pd-related-frame">
+                    <img src="img/jade1.png" alt="Cincin Citrine Rezeki">
+                </div>
+                <h3>Cincin Citrine Rezeki</h3>
+                <p>Batu rezeki pembawa kemakmuran</p>
+            </a>
+            <a href="koleksi.html#personal-collection" class="pd-related-card">
+                <div class="pd-related-frame">
+                    <img src="img/jade1.png" alt="Gelang Batu Tiger Eye">
+                </div>
+                <h3>Gelang Batu Tiger Eye</h3>
+                <p>Keberanian dan fokus</p>
+            </a>
+            <a href="koleksi.html#personal-collection" class="pd-related-card">
+                <div class="pd-related-frame">
+                    <img src="img/jade1.png" alt="Gelang Kristal Kuarsa Hijau">
+                </div>
+                <h3>Gelang Kristal Kuarsa Hijau</h3>
+                <p>Pertumbuhan dan kelimpahan</p>
+            </a>
+        </div>
+        <div class="pd-related-nav">
+            <button type="button" id="pdRelatedPrev" aria-label="Sebelumnya">&larr;</button>
+            <button type="button" id="pdRelatedNext" aria-label="Selanjutnya">&rarr;</button>
+        </div>
+    </section>
+
+    <!-- 9. CTA PENUTUP -->
+    <section class="pd-cta">
+        <span class="eyebrow">Anggara Treasures</span>
+        <h2>Temukan gelang ini di butik kami terdekat.</h2>
+        <a href="lokasi.html" class="pd-btn pd-btn-solid">Lihat Lokasi Butik</a>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+        const variants = document.querySelectorAll('.pd-variant');
+        const studioImg = document.getElementById('pdStudioImg');
+
+        variants.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                variants.forEach((b) => b.classList.remove('active'));
+                btn.classList.add('active');
+                const hue = btn.getAttribute('data-hue');
+                const filter = hue === '0' ? 'none' : `hue-rotate(${hue}deg) saturate(1.15)`;
+                studioImg.style.filter = filter;
+            });
+        });
+
+        const track = document.getElementById('pdRelatedTrack');
+        document.getElementById('pdRelatedPrev').addEventListener('click', () => {
+            track.scrollBy({ left: -280, behavior: 'smooth' });
+        });
+        document.getElementById('pdRelatedNext').addEventListener('click', () => {
+            track.scrollBy({ left: 280, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

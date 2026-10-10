@@ -1,0 +1,10 @@
+http://localhost/ang_new/index.html
+http://localhost/ang_new/about.html
+http://localhost/ang_new/ang_new.html
+http://localhost/ang_new/ang_new_lora.html
+http://localhost/ang_new/artikel.html
+http://localhost/ang_new/buting.html
+http://localhost/ang_new/jurnal.html
+http://localhost/ang_new/koleksi.html
+http://localhost/ang_new/lokasi.html
+http://localhost/ang_new/item-detail.html
