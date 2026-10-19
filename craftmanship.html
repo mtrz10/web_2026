@@ -154,7 +154,8 @@
 
         .cm-pillars-head {
             padding: 0 50px;
-            margin-bottom: 50px;
+            max-width: 1280px;
+            margin: 0 auto 50px;
         }
 
         .cm-pillars-head h2 {
@@ -166,6 +167,8 @@
 
         .cm-carousel {
             position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         .cm-car-track {
@@ -227,6 +230,26 @@
             font-weight: 600;
             font-size: 1.35rem;
             line-height: 1.25;
+        }
+
+        .cm-card-tag {
+            position: relative;
+            z-index: 1;
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.75;
+            margin-bottom: 4px;
+        }
+
+        .cm-pillars-head p {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.75;
+            max-width: 640px;
+            margin-top: 16px;
         }
 
         .cm-card p {
@@ -540,27 +563,34 @@
         <div class="reveal">
             <p class="cm-hero-eyebrow">Craftsmanship</p>
             <h1>Dari Batu Menjadi Pusaka</h1>
-            <p class="cm-hero-sub">Setiap kristal Anggara Treasures melewati enam tahapan tangan sebelum layak
-                disebut Imperial.</p>
+            <p class="cm-hero-sub">Setiap karya Anggara Treasures berawal dari pemilihan material alami yang
+                dilakukan dengan cermat. Melalui perpaduan pengetahuan Imperial Feng Shui dan keterampilan
+                pengrajin, setiap material dibentuk menjadi karya yang memiliki karakter, makna, dan
+                tujuan.</p>
+            <p class="cm-hero-sub" style="margin-top:16px;">Sebuah proses yang menghormati keindahan alam
+                sekaligus keahlian tangan manusia.</p>
         </div>
     </section>
 
     <!-- PERNYATAAN -->
     <section class="cm-statement">
-        <h2 class="reveal">Presisi. Bukan sekadar kata, melainkan janji.</h2>
+        <h2 class="reveal">Presisi yang Melampaui Keindahan</h2>
         <div class="cm-statement-body">
-            <p class="reveal">Janji untuk merancang dan mengerjakan setiap kristal dengan standar tertinggi,
-                sebagaimana tertulis dalam filosofi Imperial Feng Shui yang kami jaga sejak awal.</p>
-            <p class="reveal">Pendekatan ini dibangun di atas enam tahapan yang membentuk identitas kami &mdash;
-                dikuasai sepenuhnya, tanpa jalan pintas &mdash; menjadikan setiap kristal bukan sekadar benda,
-                melainkan pusaka yang diwariskan.</p>
+            <p class="reveal">Janji untuk merancang dan mengerjakan setiap kristal dengan standar tinggi
+                berakar pada ketelitian dalam pemilihan material serta prinsip Imperial Feng Shui. Setiap
+                keputusan, dari bentuk hingga penyelesaian akhir, memiliki pertimbangan tersendiri.</p>
+            <p class="reveal">Pendekatan ini menjadi dasar dari setiap tahapan pengerjaan. Sebuah proses
+                yang tidak hanya memperhatikan keindahan visual, tetapi juga karakter material dan makna
+                yang ingin dihadirkan.</p>
         </div>
     </section>
 
     <!-- ENAM TAHAPAN: JUDUL + CAROUSEL -->
     <section class="cm-pillars">
         <div class="cm-pillars-head">
-            <h2 class="reveal">Enam Tahapan, Satu Filosofi</h2>
+            <h2 class="reveal">Lima Tahapan Craftsmanship</h2>
+            <p class="reveal">Setiap tahapan memperlihatkan bagaimana karakter material dipertahankan dan
+                disempurnakan melalui keterampilan pengrajin.</p>
         </div>
         <div class="cm-carousel">
             <button class="cm-car-btn prev" id="cmPrev" aria-label="Tahap sebelumnya">&lsaquo;</button>
@@ -569,55 +599,56 @@
                 <article class="cm-card reveal">
                     <div class="cm-card-media" style="background-image: url('img/about2.jpeg');">
                         <span class="cm-card-num">01</span>
+                        <span class="cm-card-tag">Material Selection</span>
                         <h3>Pemilihan Material</h3>
                     </div>
-                    <p>Tim kami memilih kristal dan giok mentah berdasarkan kejernihan, warna, dan energi yang
-                        dipancarkannya.</p>
+                    <p>Setiap karya dimulai dari seleksi kristal dan giok berdasarkan kejernihan, warna,
+                        serta karakter alami material. Hanya material yang memenuhi standar kualitas Anggara
+                        Treasures yang dipilih untuk tahap berikutnya.</p>
                 </article>
 
                 <article class="cm-card reveal">
                     <div class="cm-card-media" style="background-image: url('img/about1.png');">
                         <span class="cm-card-num">02</span>
-                        <h3>Membaca Bentuk Alami</h3>
+                        <span class="cm-card-tag">Understanding The Material</span>
+                        <h3>Memahami Bentuk Alami</h3>
                     </div>
-                    <p>Sebelum alat menyentuh permukaannya, pengrajin mengamati urat dan bidang batu untuk menemukan
-                        bentuk yang sudah ada sejak lama.</p>
+                    <p>Sebelum proses pembentukan dimulai, pengrajin mengamati struktur dan karakter alami
+                        setiap batu. Bentuk, warna, dan karakteristik material menjadi pertimbangan dalam
+                        menentukan desain yang sesuai.</p>
                 </article>
 
                 <article class="cm-card reveal">
                     <div class="cm-card-media" style="background-image: url('img/bnr2.jpeg');">
                         <span class="cm-card-num">03</span>
+                        <span class="cm-card-tag">Hand Carving</span>
                         <h3>Pembentukan &amp; Pengukiran Tangan</h3>
                     </div>
-                    <p>Kontur dasar dibentuk, lalu detail halus diukir sepenuhnya dengan tangan &mdash; teknik
-                        turun-temurun dari bengkel istana.</p>
+                    <p>Kontur dasar dibentuk sebelum detail halus dikerjakan secara bertahap. Melalui teknik
+                        pengukiran tradisional yang diwariskan lintas generasi, pengrajin menghadirkan
+                        presisi yang sulit sepenuhnya direplikasi oleh mesin.</p>
                 </article>
 
                 <article class="cm-card reveal">
                     <div class="cm-card-media" style="background-image: url('img/jade1.png');">
                         <span class="cm-card-num">04</span>
+                        <span class="cm-card-tag">Manual Polishing</span>
                         <h3>Pemolesan Berlapis</h3>
                     </div>
-                    <p>Kilau alami dicapai lewat pemolesan berulang, bukan lapisan kimia &mdash; menjaga tekstur dan
-                        energi asli material.</p>
+                    <p>Setiap permukaan melalui proses pemolesan bertahap untuk menyempurnakan tekstur dan
+                        kilau alami material. Ketelitian pada tahap ini membantu menampilkan kejernihan,
+                        warna, serta detail hasil pengukiran.</p>
                 </article>
 
                 <article class="cm-card reveal">
                     <div class="cm-card-media" style="background-image: url('img/about3.jpeg');">
                         <span class="cm-card-num">05</span>
-                        <h3>Penyelarasan Energi</h3>
+                        <span class="cm-card-tag">Final Refinement</span>
+                        <h3>Penyelarasan Akhir</h3>
                     </div>
-                    <p>Setiap kristal diperiksa kesesuaiannya dengan prinsip Imperial Feng Shui sebelum dinyatakan
-                        layak.</p>
-                </article>
-
-                <article class="cm-card reveal">
-                    <div class="cm-card-media" style="background-image: url('img/banner.jpeg');">
-                        <span class="cm-card-num">06</span>
-                        <h3>Kendali Akhir &amp; Sertifikasi</h3>
-                    </div>
-                    <p>Pemeriksaan kualitas menyeluruh dan penerbitan sertifikat keaslian sebelum sampai ke tangan
-                        Anda.</p>
+                    <p>Setiap karya diperiksa kembali berdasarkan kualitas pengerjaan dan kesesuaiannya
+                        dengan prinsip Imperial Feng Shui. Tahap akhir memastikan bahwa bentuk, detail, dan
+                        karakter material hadir dalam satu kesatuan.</p>
                 </article>
             </div>
 
@@ -634,23 +665,27 @@
     <!-- BENGKEL KAMI -->
     <section class="cm-feature reveal">
         <div class="cm-feature-text">
-            <p class="cm-eyebrow">Bengkel Kami</p>
+            <p class="cm-eyebrow">Proses Kami</p>
             <h2>Dikerjakan Sepenuhnya oleh Tangan, di Bawah Satu Atap</h2>
-            <p>Dari pemilihan batu hingga sertifikasi akhir, seluruh proses berlangsung di tangan pengrajin kami
-                sendiri &mdash; tanpa alih daya, tanpa jalan pintas. Kontrol penuh ini memastikan setiap kristal
-                yang keluar dari bengkel kami memenuhi standar Imperial yang sama, tanpa kompromi.</p>
+            <p>Dari pemilihan material hingga sentuhan akhir, setiap karya melalui proses pengerjaan yang
+                mengutamakan keterampilan tangan dan ketelitian. Setiap tahap dilakukan dengan perhatian
+                terhadap bentuk, proporsi, serta karakter alami material.</p>
+            <p>Kontrol terhadap keseluruhan proses memungkinkan standar pengerjaan dijaga secara konsisten.
+                Sebuah komitmen untuk menghadirkan karya dengan kualitas dan karakter yang tidak
+                dikompromikan.</p>
         </div>
     </section>
 
     <!-- PENUTUP -->
     <section class="cm-closing">
         <p class="cm-eyebrow reveal">Saksikan Hasilnya</p>
-        <h2 class="reveal">Jelajahi Koleksi yang Lahir dari Tangan Para Maestro</h2>
-        <p class="reveal">Setiap kristal dalam koleksi kami membawa jejak enam tahapan ini &mdash; presisi,
-            kesabaran, dan makna yang tidak bisa digantikan mesin.</p>
+        <h2 class="reveal">Warisan Keahlian dalam Setiap Karya</h2>
+        <p class="reveal">Setiap koleksi Anggara Treasures mencerminkan ketelitian dalam pemilihan material,
+            kesabaran dalam pengerjaan, dan pengetahuan yang menyertai setiap bentuk. Sebuah karya yang lahir
+            dari perpaduan alam, tradisi, dan keterampilan tangan.</p>
         <div class="cm-closing-actions reveal">
-            <a href="lokasi.html" class="btn-outline-light">Konsultasi Penempatan</a>
-            <a href="koleksi.html" class="btn-dark">Lihat Koleksi</a>
+            <a href="koleksi.html" class="btn-dark">Explore The Collections</a>
+            <a href="lokasi.html" class="btn-outline-light">Enquire About Placement</a>
         </div>
     </section>
 

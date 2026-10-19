@@ -531,6 +531,170 @@
         }
 
         /* ==========================================
+           11B. SECTION TAMBAHAN: STORY, HOUSE, FOUNDER,
+           WHY, PHILOSOPHY, HERITAGE & CRAFTSMANSHIP
+           ========================================== */
+        .text-block {
+            background-color: var(--color-secondary);
+            padding: 110px 50px;
+            text-align: center;
+        }
+
+        .text-block-body {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .text-block-body p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.82;
+            margin-bottom: 18px;
+        }
+
+        .text-block-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .founder-section {
+            background-color: #0d0002;
+            color: var(--color-secondary);
+            padding: 110px 50px 120px;
+        }
+
+        .founder-section .title-lines {
+            color: #e0333f;
+            margin-bottom: 60px;
+        }
+
+        .founder-card {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 50px;
+            align-items: start;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .founder-avatar {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: #e0333f;
+            background-color: rgba(224, 51, 63, 0.08);
+        }
+
+        .founder-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .founder-role {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-bottom: 22px;
+        }
+
+        .founder-info p {
+            font-size: 0.98rem;
+            opacity: 0.82;
+            margin-bottom: 16px;
+        }
+
+        .founder-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .letter-section {
+            background-color: var(--color-secondary);
+            color: var(--color-font);
+            padding: 120px 30px;
+            text-align: center;
+        }
+
+        .letter-section .title-lines {
+            color: var(--color-primary);
+        }
+
+        .letter-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin: 22px 0 46px;
+        }
+
+        .letter-body {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .letter-body p {
+            font-size: 0.98rem;
+            line-height: 1.85;
+            opacity: 0.85;
+            margin-bottom: 22px;
+        }
+
+        .letter-sign {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .philosophy-section {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 140px 30px;
+            text-align: center;
+        }
+
+        .philosophy-section .title-lines {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .philosophy-section h2 {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 2.1rem;
+            line-height: 1.45;
+            max-width: 780px;
+            margin: 22px auto 40px;
+        }
+
+        .phil-body {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .phil-body p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.88;
+            margin-bottom: 18px;
+        }
+
+        .phil-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
            12. ANIMASI MUNCUL SAAT SCROLL
            ========================================== */
         .reveal {
@@ -583,6 +747,12 @@
             .hero-band,
             .banner-img {
                 background-attachment: scroll;
+            }
+
+            .founder-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
             }
         }
 
@@ -661,6 +831,30 @@
             .quote-section blockquote {
                 font-size: 1.4rem;
             }
+
+            .text-block {
+                padding: 80px 25px;
+            }
+
+            .founder-section {
+                padding: 80px 25px 90px;
+            }
+
+            .letter-section {
+                padding: 80px 25px;
+            }
+
+            .letter-section h2 {
+                font-size: 1.9rem;
+            }
+
+            .philosophy-section {
+                padding: 90px 25px;
+            }
+
+            .philosophy-section h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -686,7 +880,7 @@
         <p class="lead reveal">Dari Dinasti Qing ke Anggara Treasures &mdash; menelusuri jejak kristal pusaka yang telah
             dipuja sebagai lambang kekuasaan, kemurnian, dan keberuntungan sejak ribuan tahun silam.</p>
         <p class="lead-sub reveal">Anggara Treasures menghadirkan kristal imperial fengshui pilihan yang dikurasi dengan
-            teliti, dipercaya membawa keberuntungan, kemakmuran, dan keseimbangan energi bagi rumah maupun usaha Anda.
+            teliti, yang mampu membawa keberuntungan, kemakmuran, dan keseimbangan energi bagi rumah maupun usaha Anda.
         </p>
         <img class="lead-mark reveal" src="img/logo.png" alt="Anggara Treasures">
     </section>
@@ -698,14 +892,13 @@
                 <div class="tl-img"><img src="img/kiri.jpeg"
                         alt="Ruang istana Dinasti Qing dengan naga giok, bola kristal, dan cakram giok"></div>
                 <div class="tl-body">
-                    <h3>Dinasti Qing</h3>
+                    <h3>Imperial Fengshui</h3>
                     <p class="title-lines">1644&ndash;1912 M</p>
-                    <p>Dinasti Qing adalah dinasti kekaisaran terakhir Tiongkok. Selama hampir tiga abad, batu giok dan
-                        kristal tetap dipandang sebagai lambang kemurnian, kekuasaan, dan perlindungan, dikoleksi oleh
-                        istana sekaligus dipakai dalam upacara dan sebagai hadiah kenegaraan.</p>
-                    <p>Bengkel-bengkel istana menyempurnakan seni pengukiran hingga mencapai kehalusan yang luar biasa.
-                        Pada masa ini pula jadeite hijau dari Myanmar mulai masuk dan dicintai, cikal bakal dari
-                        &ldquo;Jadeite Imperial&rdquo; yang kita kenal sekarang.</p>
+                    <p>Berakar pada tradisi Tiongkok kuno, Imperial Feng Shui mempelajari hubungan antara manusia,
+                        lingkungan, dan siklus waktu melalui prinsip Yin dan Yang serta Lima Elemen.</p>
+                    <p>Dalam tradisi kekaisaran, pengetahuan ini digunakan sebagai salah satu pertimbangan dalam menata
+                        lingkungan dan menentukan arah keputusan penting. Kini, prinsip yang sama menjadi fondasi
+                        pendekatan Anggara Treasures untuk memahami dan mengoptimalkan lingkungan secara personal.</p>
                     <a class="gal-link" href="dinasti-qing.html">Discover More</a>
                 </div>
             </article>
@@ -713,15 +906,14 @@
                 <div class="tl-img"><img src="img/tengah.jpeg"
                         alt="Aula istana kekaisaran Tiongkok, kediaman Kaisar Qianlong"></div>
                 <div class="tl-body">
-                    <h3>Emperor Qianlong</h3>
+                    <h3>Kaisar Qian Long</h3>
                     <p class="title-lines">1735&ndash;1796 M</p>
-                    <p>Kaisar Qianlong memerintah selama enam dekade dan dikenal sebagai salah satu penggemar giok
-                        terbesar dalam sejarah Tiongkok. Ia mengumpulkan ribuan karya giok, memerintahkan bengkel istana
-                        menciptakan benda-benda baru, dan tak jarang menuliskan sajaknya sendiri pada permukaan giok
-                        koleksinya.</p>
-                    <p>Di bawah patronasenya, seni giok mencapai puncak kemegahan dan menjadi standar keindahan
-                        imperial. Semangat inilah yang menjadi rujukan cara kami menilai kualitas, kehalusan ukiran, dan
-                        makna setiap kristal.</p>
+                    <p>Memerintah pada 1735–1796, Kaisar Qian Long dikenal sebagai salah satu pelindung seni dan
+                        kebudayaan paling berpengaruh dalam sejarah Dinasti Qing. Di bawah patronasenya, seni ukir giok
+                        berkembang menjadi salah satu simbol prestise dan kehalusan artistik istana.</p>
+                    <p>Melalui dukungannya terhadap para pengrajin dan seniman, termasuk seniman Eropa yang berkarya di
+                        lingkungan istana, lahir warisan artistik yang mempertemukan tradisi, keterampilan, dan visi
+                        kekaisaran.</p>
                     <a class="gal-link" href="kaisar-qianlong.html">Discover More</a>
                 </div>
             </article>
@@ -731,11 +923,13 @@
                 <div class="tl-body">
                     <h3>Anggara Treasures</h3>
                     <p class="title-lines">Sekarang</p>
-                    <p>Anggara Treasures hadir untuk menghidupkan kembali warisan tersebut bagi generasi masa kini. Kami
-                        mengkurasi kristal imperial fengshui pilihan dengan standar keaslian dan kualitas tertinggi,
-                        dipercaya membawa perlindungan, keberuntungan, dan kemakmuran.</p>
-                    <p>Setiap kristal yang kami tawarkan adalah kelanjutan dari kisah panjang yang telah dimulai sejak
-                        ribuan tahun lalu, menghadirkan keseimbangan energi ke dalam rumah maupun usaha Anda.</p>
+                    <p>Menelusuri warisan Dinasti Qing hingga Anggara Treasures, berbagai mineral alami telah menjadi
+                        bagian dari tradisi kekaisaran selama ribuan tahun. Mineral tersebut dipercaya memiliki peran
+                        dalam memperkuat kejayaan kerajaan serta menjaga kemakmuran keluarga kekaisaran.</p>
+                    <p>Kini, Anggara Treasures menghadirkan koleksi Kristal Imperial Feng Shui pilihan melalui proses
+                        kurasi yang cermat. Setiap kristal dipilih berdasarkan filosofi Imperial Feng Shui, dengan
+                        tujuan mendukung keberuntungan, kemakmuran, dan keseimbangan energi bagi hunian maupun
+                        lingkungan usaha Anda.</p>
                     <a class="gal-link" href="anggara-treasures.html">Discover More</a>
                 </div>
             </article>
@@ -754,9 +948,10 @@
             </div>
             <div class="duo-text reveal">
                 <p class="eyebrow">Clarity</p>
-                <h3>Hanya yang paling murni yang kami pilih.</h3>
-                <p>Setiap kristal dinilai dari tingkat kejernihannya &mdash; inklusi dan noda internal menjadi
-                    penentu. Hanya kristal transparan dengan kejernihan tertinggi yang masuk ke dalam koleksi kami.</p>
+                <h3>Kejernihan Istimewa, Dipilih dengan Cermat.</h3>
+                <p>Setiap kristal melalui proses penilaian kejernihan yang memperhatikan inklusi serta karakteristik
+                    internalnya. Hanya kristal dengan tingkat kejernihan tertinggi yang dipilih untuk menjadi bagian
+                    dari koleksi Anggara Treasures.</p>
             </div>
         </div>
 
@@ -765,9 +960,10 @@
             </div>
             <div class="duo-text reveal">
                 <p class="eyebrow">Color</p>
-                <h3>Warna alami, tanpa rekayasa.</h3>
-                <p>Tidak ada pewarnaan atau perlakuan buatan pada kristal kami. Kemurnian warna yang terbentuk
-                    secara alami inilah yang menentukan keaslian dan nilainya.</p>
+                <h3>Keindahan Warna Alami, Tanpa Rekayasa.</h3>
+                <p>Setiap kristal mempertahankan warna alaminya tanpa pewarnaan maupun perlakuan buatan. Kemurnian
+                    warna yang terbentuk secara alami menjadi bagian dari karakter, keaslian, dan nilai setiap
+                    karya.</p>
             </div>
         </div>
 
@@ -776,9 +972,10 @@
                     alt="Kompas feng shui dan qilin ametis pada meja kayu"></div>
             <div class="duo-text reveal">
                 <p class="eyebrow">Handcrafted</p>
-                <h3>Dipahat tangan, bukan mesin.</h3>
-                <p>Setiap potongan diukir langsung oleh tangan maestro pengrajin dengan teknik turun-temurun &mdash;
-                    presisi yang memaksimalkan pantulan cahaya dan energi di dalamnya.</p>
+                <h3>Diukir dengan Tangan, Disempurnakan oleh Keahlian.</h3>
+                <p>Setiap potongan diukir langsung oleh tangan maestro pengrajin melalui teknik tradisional yang
+                    diwariskan lintas generasi. Presisi setiap detail dirancang untuk memaksimalkan pantulan cahaya
+                    serta energi yang terkandung di dalamnya.</p>
             </div>
         </div>
     </section>
@@ -792,13 +989,16 @@
                 <h2>Warisan Tangan Para Maestro</h2>
             </div>
             <div class="cols reveal">
-                <p>Sepanjang jalur perdagangan kuno, batu-batu pusaka dari berbagai penjuru Asia mengalir masuk ke
-                    Tiongkok, memperkaya khazanah kristal yang dikenal hingga kini. Di balik setiap potongnya, tangan
-                    para maestro pengukir menghabiskan waktu berbulan-bulan untuk membentuk kristal menjadi karya
-                    seni.</p>
-                <p>Presisi teknis dipadukan dengan penghormatan terhadap makna spiritual di dalamnya &mdash; tradisi
-                    inilah yang terus kami jaga dalam proses kurasi setiap koleksi Anggara Treasures.</p>
+                <p>Setiap koleksi Jadeite Anggara Treasures menggunakan Jadeite alami berkualitas tinggi yang
+                    berasal dari tambang terpercaya di Myanmar. Material pilihan ini kemudian dibawa ke tangan para
+                    pengrajin terlatih yang mendedikasikan keahliannya pada seni pengukiran tradisional. Sebuah
+                    keterampilan yang diwariskan secara turun-temurun.</p>
+                <p>Anggara Treasures menggunakan Jadeite kualitas Grade-A dalam seluruh koleksinya. Setiap Jadeite
+                    mempertahankan keaslian alaminya tanpa proses pewarnaan buatan untuk meningkatkan tampilan maupun
+                    menyamarkan karakter material. Seluruh proses pengukiran berada dalam kendali Anggara Treasures
+                    untuk memastikan setiap karya memiliki karakter dan keistimewaannya sendiri.</p>
             </div>
+
         </div>
     </section>
 
@@ -848,19 +1048,141 @@
     <!-- 9. QUOTE -->
     <section class="quote-section">
         <blockquote class="reveal">
-            "Kristal bukan sekadar batu &mdash; ia adalah penjaga energi, saksi waktu, dan warisan yang terus
-            hidup."
-            <cite>Anggara Treasures</cite>
+            Jadeite dan kristal dikenal dalam tradisi Imperial Feng Shui sebagai mineral yang memiliki nilai lebih
+            dari sekadar keindahan. Karakteristik fisiknya, termasuk sifat piezoelektrik pada jenis kristal
+            tertentu, menjadi bagian dari pembahasan mengenai energi dan interaksinya dengan lingkungan.
+            <br><br>
+            Dalam filosofi Imperial Feng Shui, mineral dipilih dan ditempatkan dengan tujuan mendukung keselarasan
+            energi. Sebuah pendekatan yang diarahkan untuk menunjang kemakmuran dan kejayaan.
         </blockquote>
     </section>
 
-    <!-- 10. CLOSING CTA -->
+    <!-- 11. OUR STORY -->
+    <section class="text-block">
+        <div class="duo-head reveal">
+            <p class="title-lines">Our Story</p>
+            <h2>Dari Pencarian Pribadi Menuju Sebuah Warisan</h2>
+        </div>
+        <div class="text-block-body reveal">
+            <p>Anggara Treasures lahir dari perjalanan panjang untuk memahami mengapa kerja keras dan strategi
+                yang sama dapat menghasilkan perjalanan hidup yang berbeda. Sebuah pencarian yang kemudian
+                mempertemukan pengalaman pribadi, pengetahuan Imperial Feng Shui, dan pemahaman tentang waktu
+                serta lingkungan.</p>
+            <p>Hari ini, Anggara Treasures menghadirkan pendekatan personal bagi individu dan pemilik bisnis
+                yang ingin memahami, memperkuat, dan menjaga kemakmuran mereka.</p>
+        </div>
+    </section>
+
+    <!-- 12. THE HOUSE -->
+    <section class="duo-section" style="padding-bottom: 110px;">
+        <div class="duo reverse">
+            <div class="duo-img reveal"><img src="img/tengah.jpeg"
+                    alt="Arsitektur istana kekaisaran Tiongkok, lambang pengetahuan Imperial"></div>
+            <div class="duo-text reveal">
+                <p class="eyebrow">The House</p>
+                <h3>Ketika Pengetahuan Imperial Bertemu Kehidupan Modern</h3>
+                <p>Didirikan oleh Master Rezza Anggara, Anggara Treasures merupakan praktik konsultasi Imperial
+                    Feng Shui dan Imperial BaZi yang berakar pada pengetahuan dari tradisi kekaisaran Tiongkok.
+                    Pendekatannya berlandaskan prinsip Yin dan Yang, Lima Elemen, serta pemahaman mengenai
+                    Personal Luck, Wealth Capacity, dan Strategic Timing.</p>
+                <p>Melalui konsultasi personal, analisis lingkungan, serta pemilihan material seperti Jadeite
+                    dan mineral alami, Anggara Treasures membantu klien memahami hubungan antara pola pribadi,
+                    waktu, dan ruang. Setiap pendekatan disesuaikan dengan kebutuhan individu maupun bisnis,
+                    dengan perhatian terhadap keberlanjutan dan pelestarian kemakmuran.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. MEET THE FOUNDER -->
+    <section class="founder-section">
+        <p class="title-lines reveal" style="justify-content:center;display:flex;">Meet The Founder</p>
+        <div class="founder-card reveal">
+            <div class="founder-avatar" aria-hidden="true">RA</div>
+            <div class="founder-info">
+                <h3>Rezza Anggara</h3>
+                <p class="founder-role">Founder of Anggara Treasures</p>
+                <p>Perjalanan Rezza Anggara berawal dari ketertarikannya terhadap manusia, perilaku, dan pola
+                    kehidupan. Setelah mendalami hipnoterapi, mesmerism, dan life transformational coaching,
+                    pencariannya berlanjut pada sebuah pertanyaan: mengapa usaha yang sama tidak selalu
+                    menghasilkan pencapaian yang sama?</p>
+                <p>Pada 2023, pertemuannya dengan seorang Master dari tradisi Imperial Feng Shui menghadirkan
+                    perspektif baru mengenai hubungan antara waktu, lingkungan, dan pola pribadi. Pengetahuan
+                    inilah yang kemudian menjadi fondasi pendekatannya dalam membantu para pemilik bisnis dan
+                    profesional memahami momentum serta menjaga keberlanjutan kesuksesan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. THE WHY -->
+    <section class="letter-section">
+        <div class="reveal">
+            <p class="title-lines" style="justify-content:center;display:flex;">The Why</p>
+            <h2>Tiga Belas Tahun Mencari Jawaban</h2>
+        </div>
+        <div class="letter-body reveal">
+            <p>Selama tiga belas tahun, saya mempelajari berbagai pendekatan untuk memahami manusia dan
+                kesuksesan. Dari dunia bisnis hingga hipnoterapi dan life transformational coaching, saya terus
+                mencari jawaban atas satu pertanyaan: mengapa usaha yang besar tidak selalu menghasilkan
+                kehidupan yang diharapkan?</p>
+            <p>Pada akhir 2017, kehidupan saya mengalami perubahan yang tidak saya duga. Peluang mulai
+                berdatangan, pendapatan meningkat, dan berbagai hal bergerak tanpa perubahan strategi yang
+                berarti. Namun, saat itu saya belum memahami apa yang sesungguhnya berubah.</p>
+            <p>Jawaban baru mulai terbuka pada 2023, ketika seorang Master dari tradisi Imperial Feng Shui
+                membaca pola kehidupan saya melalui data kelahiran dan denah rumah. Pertemuan tersebut
+                memperkenalkan saya pada pemahaman tentang waktu, lingkungan, dan pola pribadi yang sebelumnya
+                luput dari perhatian.</p>
+            <p>Perjalanan ini juga memiliki makna personal. Saya menyaksikan bagaimana kemakmuran yang telah
+                dibangun keluarga dapat berubah, termasuk pengalaman seorang anggota keluarga yang menghadapi
+                tiga peristiwa kebakaran dan kehilangan kestabilan hidupnya.</p>
+            <p>Dari pengalaman itulah Anggara Treasures didirikan. Bukan hanya untuk membantu seseorang
+                mencapai kesuksesan, tetapi juga memahami bagaimana kemakmuran dapat dijaga, diperkuat, dan
+                diwariskan.</p>
+            <span class="letter-sign">&mdash; Rezza Anggara, Founder of Anggara Treasures</span>
+        </div>
+    </section>
+
+    <!-- 15. OUR PHILOSOPHY -->
+    <section class="philosophy-section reveal">
+        <p class="title-lines" style="justify-content:center;display:flex;">Our Philosophy</p>
+        <h2>Prosperity Is Not Only Pursued. It Can Be Directed.</h2>
+        <div class="phil-body">
+            <p>Kerja keras dan strategi tetap menjadi fondasi sebuah pencapaian. Namun, dalam filosofi Imperial
+                Feng Shui, waktu, lingkungan, dan pola pribadi juga menjadi pertimbangan penting dalam
+                menentukan arah perjalanan seseorang.</p>
+            <p>Anggara Treasures memadukan ketiga pemahaman tersebut melalui pendekatan yang personal dan
+                terstruktur. Sebuah praktik yang berangkat dari keyakinan bahwa kesuksesan bukan hanya tentang
+                apa yang dapat diraih, tetapi juga tentang apa yang mampu dipertahankan untuk generasi
+                berikutnya.</p>
+        </div>
+    </section>
+
+    <!-- 16. HERITAGE & CRAFTSMANSHIP -->
+    <section id="heritage-craftsmanship">
+        <div class="banner-img" role="img" aria-label="Pengrajin tangan mengukir material alami"
+            style="background-image: url('img/kanan.jpeg');"></div>
+        <div class="banner-text">
+            <div class="reveal">
+                <p class="title-lines">Heritage &amp; Craftsmanship</p>
+                <h2>Saat Keahlian Tangan Bertemu Sejarah</h2>
+            </div>
+            <div class="cols reveal">
+                <p>Setiap koleksi Anggara Treasures berawal dari pemilihan material alami yang mempertimbangkan
+                    kejernihan, warna, dan karakteristiknya. Melalui keterampilan pengrajin serta teknik
+                    pengukiran tradisional, material pilihan tersebut diwujudkan menjadi karya yang memiliki
+                    keindahan dan makna.</p>
+                <p>Berakar pada prinsip Imperial Feng Shui, setiap koleksi mencerminkan pertemuan antara
+                    pengetahuan, ketelitian, dan penghormatan terhadap warisan keahlian yang terus dijaga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. DISCOVER ANGGARA TREASURES -->
     <section class="about-cta">
-        <p class="title-lines reveal">Langkah Berikutnya</p>
-        <h2 class="reveal">Temukan Kristal Warisan Anda</h2>
-        <p class="reveal">Jelajahi koleksi kristal imperial fengshui kami dan temukan energi yang selaras dengan
-            perjalanan Anda.</p>
-        <a href="koleksi.html" class="btn-dark reveal">Lihat Koleksi</a>
+        <p class="title-lines reveal">Discover Anggara Treasures</p>
+        <h2 class="reveal">Sebuah Warisan untuk Generasi Mendatang</h2>
+        <p class="reveal">Jelajahi koleksi Anggara Treasures, tempat pengetahuan Imperial, karakter alami
+            material, dan keterampilan tangan hadir dalam setiap karya.</p>
+        <a href="koleksi.html" class="btn-dark reveal">EXPLORE THE COLLECTIONS</a>
     </section>
 
 
