@@ -24,9 +24,8 @@
   --hs-merah-20  : rgba(156, 5, 18, 0.2);
   --hs-merah-10  : rgba(156, 5, 18, 0.1);
 
-  /* SF Pro di perangkat Apple (via -apple-system), Inter di perangkat lain */
-  --hs-display : -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --hs-sans    : -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --hs-display : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --hs-sans    : 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   --hs-nav-h  : 72px;   /* tinggi header situs (padding 20px + logo 32px) */
   --hs-gutter : clamp(20px, 5vw, 64px);
