@@ -133,9 +133,11 @@
             transition: background-color 0.35s ease, color 0.35s ease;
         }
 
-        .cs-cta:hover {
-            background-color: var(--color-secondary);
-            color: var(--color-font);
+        @media (hover: hover) {
+            .cs-cta:hover {
+                background-color: var(--color-secondary);
+                color: var(--color-font);
+            }
         }
 
         @media (max-width: 768px) {
